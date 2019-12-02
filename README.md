@@ -8,3 +8,12 @@ https://www.youtube.com/watch?v=m34FCkBd7UU&t=89s
 https://github.com/CodAffection/MEAN-Stack-User-Registration---Back-End 
 
 
+
+
+
+commit  ae02c03154f5c1b5ddbd3eeaa11adbc1ba47a5fa
+Frontend using Angular 8
+User Registration Sign up funciton, connect to MongoDB 
+Reference:
+https://www.youtube.com/watch?v=m34FCkBd7UU
+https://github.com/CodAffection/MEAN-Stack-User-Registration-Front-End
