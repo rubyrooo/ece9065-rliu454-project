@@ -1,7 +1,11 @@
 {
     "development": {
         "PORT": 3000,
-        "MONGODB_URI": "mongodb+srv://rubyroo:abcd1234@cluster0-5bhss.mongodb.net/MEANStackDB?retryWrites=true&w=majority"
+        "MONGODB_URI": "mongodb+srv://rubyroo:abcd1234@cluster0-5bhss.mongodb.net/MEANStackDB?retryWrites=true&w=majority",
+        "JWT_SECRET": "SECRET#123",
+        "JWT_EXP": "2m"
+
+
     },
     "production": {
         "PORT": 80,

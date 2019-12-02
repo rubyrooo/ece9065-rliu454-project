@@ -10,12 +10,14 @@ import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 
 import { appRoutes } from './routes';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    SignUpComponent
+    SignUpComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
