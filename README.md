@@ -17,3 +17,10 @@ User Registration Sign up funciton, connect to MongoDB
 Reference:
 https://www.youtube.com/watch?v=m34FCkBd7UU
 https://github.com/CodAffection/MEAN-Stack-User-Registration-Front-End
+
+
+commit 2e7e23d4556a3c5792f943bdebe520d9ee8bcf54
+Jwt Authentication in Node JS 
+Reference:
+https://www.youtube.com/watch?v=T8qepiTbJi4
+https://github.com/CodAffection/MEAN-Stack-Jwt-Authentication-Node-JS-Part-1/blob/master/server/config/passportConfig.js
