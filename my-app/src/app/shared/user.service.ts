@@ -20,7 +20,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
    //HttpMethods
-   postUser(user: User){
+  postUser(user: User){
     return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
   }
   login(authCredentials) {
