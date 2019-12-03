@@ -11,9 +11,32 @@ passport.use('googleToken', new GooglePlusTokenStrategy({
     clientSecret: 'DyQSnOHJXEtv9L4lYx0SHyr1'
 
 }, async(accessToken, refreshToken, profile, done) => {
-    console.log('accessToken', accessToken);
-    console.log('refreshToken', refreshToken);
-    console.log('profile', profile);
+
+    try {
+        console.log('accessToken', accessToken);
+        console.log('refreshToken', refreshToken);
+        console.log('profile', profile);
+
+        //check if current user
+        const existingUser = await User.findOne({ email: profile.emails[0].value });
+        if (existingUser) {
+            console.log('User already exists!');
+            return done(null, existingUser);
+        }
+
+        console.log("User doesn't exists, create a new user account");
+        //if new user
+        const newUser = new User({
+            method: 'google',
+            email: profile.emails[0].value,
+            fullName: profile.displayName
+        });
+        await newUser.save();
+        done(null, newUser);
+
+    } catch (error) {
+        done(error, false, error.message);
+    }
 
 }));
 
