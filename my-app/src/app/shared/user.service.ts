@@ -11,7 +11,8 @@ export class UserService {
   selectedUser: User = {
     fullName: '',
     email: '',
-    password: ''
+    password: '',
+    method: 'local'
   };
 
 
