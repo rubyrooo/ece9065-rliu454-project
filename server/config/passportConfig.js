@@ -1,9 +1,26 @@
 const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
+const GooglePlusTokenStrategy = require('passport-google-plus-token');
 const mongoose = require('mongoose');
 
 var User = mongoose.model('User');
 
+// Google OAuth Strategy
+passport.use('googleToken', new GooglePlusTokenStrategy({
+    clientID: '793080839530-sdr0nj1r4vn2ukhff08combdn0joq27m.apps.googleusercontent.com',
+    clientSecret: 'DyQSnOHJXEtv9L4lYx0SHyr1'
+
+}, async(accessToken, refreshToken, profile, done) => {
+    console.log('accessToken', accessToken);
+    console.log('refreshToken', refreshToken);
+    console.log('profile', profile);
+
+}));
+
+
+
+
+// Local Strategy
 passport.use(
     new localStrategy({ usernameField: 'email' },
         (username, password, done) => {

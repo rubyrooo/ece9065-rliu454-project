@@ -24,3 +24,11 @@ Jwt Authentication in Node JS
 Reference:
 https://www.youtube.com/watch?v=T8qepiTbJi4
 https://github.com/CodAffection/MEAN-Stack-Jwt-Authentication-Node-JS-Part-1/blob/master/server/config/passportConfig.js
+
+
+commit e09fb80cc5beb6b5349f7e35a59225bb79b3c944
+Login and Logout
+Reference:
+https://www.youtube.com/watch?v=r0QYP61bCCM
+https://github.com/CodAffection/MEAN-Stack-Login-and-Logout-in-Angular-6-Part-2
+
