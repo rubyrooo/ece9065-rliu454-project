@@ -49,14 +49,20 @@ passport.use(
         (username, password, done) => {
             User.findOne({ email: username },
                 (err, user) => {
+
                     if (err)
                         return done(err);
                     // unknown user
                     else if (!user)
                         return done(null, false, { message: 'Email is not registered' });
                     // wrong password
-                    else if (!user.verifyPassword(password))
+                    else if (!user.verifyPassword(password)) {
+                        console.log("Password: " + password);
                         return done(null, false, { message: 'Wrong password.' });
+                    }
+                    // user active = true
+                    else if (user.active == false)
+                        return done(null, false, { message: 'Email not varified' });
                     // authentication succeeded
                     else
                         return done(null, user);

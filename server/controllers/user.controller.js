@@ -62,14 +62,9 @@ module.exports.register = (req, res, next) => {
 
 
 
-// get by id
+// Change active to true one email has been varified
 module.exports.varify = (req, res) => {
-    User.findOne({ email: req.params.varify }, function(err, user) {
-        user.active = true;
-        user.save();
-        if (err) return next(err);
-
-        /* res.send(user); */
+    User.findOneAndUpdate({ email: req.params.varify }, { $set: { active: true } }).then((updatedDoc) => {
         res.send(
             '<html><strong> Email Varify Secceed.:</strong><br><br><a href="http://localhost:4200/login">click</a></html>'
         );
