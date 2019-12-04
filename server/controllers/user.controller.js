@@ -7,10 +7,6 @@ const sgTransport = require('nodemailer-sendgrid-transport');
 const User = mongoose.model('User');
 
 
-
-
-
-
 module.exports.register = (req, res, next) => {
     var user = new User();
     user.fullName = req.body.fullName;
@@ -35,8 +31,9 @@ module.exports.register = (req, res, next) => {
                 from: 'Localhost Staff, staff@localhost.com',
                 to: user.email,
                 subject: 'Localhost Activation Link',
-                text: 'Hello ' + user.fullName + ', thank you for registering at localhost.com. Please click on the following link to complete your activation: http://localhost:3000/api/varify/',
-                html: 'Hello<strong> ' + user.fullName + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://localhost:3000/api/varify/">http://localhost:3000/api/varify/</a>'
+                //text: Hello<strong> ' + user.fullName + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://3.92.30.52:8080/varify.html?param1=' + req.body.email + '"> Click Me</a>',
+                html: 'Hello<strong> ' + user.fullName + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://3.92.30.52:8080/varify.html?param1=' + req.body.email + '"> Click Me</a>'
+
             };
             // Function to send e-mail to the user
             client.sendMail(emailemail, function(err, info) {
@@ -61,17 +58,19 @@ module.exports.register = (req, res, next) => {
     });
 }
 
-module.exports.varify = (req, res, next) => {
-    var user = new User();
-    User.findOne({ email: req.body.email },
-        (err, user) => {
-            if (!user)
-                return res.status(404).json({ status: false, message: 'User record not found.' });
-            else
-                user.active = true;
-        }
-    );
-}
+
+
+// get by id
+module.exports.varify = async(req, res) => {
+    User.findOne({ email: req.params.varify }, function(err, user) {
+        user.active = true;
+        user.save();
+        if (err) return next(err);
+        res.send(user);
+    })
+};
+
+
 
 module.exports.authenticate = (req, res, next) => {
     // call for passport authentication
