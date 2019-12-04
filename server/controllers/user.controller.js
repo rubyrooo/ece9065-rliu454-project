@@ -32,6 +32,7 @@ module.exports.register = (req, res, next) => {
                 to: user.email,
                 subject: 'Localhost Activation Link',
                 //text: Hello<strong> ' + user.fullName + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://3.92.30.52:8080/varify.html?param1=' + req.body.email + '"> Click Me</a>',
+                // http://3.92.30.52:8080  is cloud 9 lab1 addredd
                 html: 'Hello<strong> ' + user.fullName + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://3.92.30.52:8080/varify.html?param1=' + req.body.email + '"> Click Me</a>'
 
             };
@@ -66,7 +67,11 @@ module.exports.varify = async(req, res) => {
         user.active = true;
         user.save();
         if (err) return next(err);
-        res.send(user);
+
+        /* res.send(user); */
+        res.send(
+            '<html><strong> Email Varify Secceed.:</strong><br><br><a href="http://localhost:4200/signup">click</a></html>'
+        );
     })
 };
 
