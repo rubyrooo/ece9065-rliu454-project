@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { UserComponent } from './user/user.component';
+import { HomepageComponent } from './homepage/homepage.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -18,6 +19,10 @@ export const appRoutes: Routes = [
         path: 'userprofile', component: UserProfileComponent,canActivate:[AuthGuard]
     },
     {
-        path: '', redirectTo: '/signup', pathMatch: 'full'
+        path: 'homepage', component: HomepageComponent
+      
+    },
+    {
+        path: '', redirectTo: '/homepage', pathMatch: 'full'
     }
 ];

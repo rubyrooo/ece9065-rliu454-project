@@ -5,12 +5,13 @@
 /* BASIC */
 
 html {
-    background-color: #56baed;
+    /*  background-color: #f7db6a; */
 }
 
 body {
     font-family: "Poppins", sans-serif;
-    height: 100vh;
+    background-image: url('./assets/img/background_1.jpg');
+    /* height: 100vh; */
 }
 
 a {
@@ -39,7 +40,7 @@ h2 {
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    padding: 20px;
+    padding: 200px;
 }
 
 #formContent {
@@ -50,7 +51,7 @@ h2 {
     width: 90%;
     max-width: 500px;
     position: relative;
-    padding: 100px;
+    padding: 50px;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     text-align: center;
@@ -337,6 +338,8 @@ label.validation-message {
     border-collapse: collapse;
     height: 320px;
     margin: auto;
+    margin-top: 200px;
+    margin-bottom: 200px;
     max-width: 600px;
     padding: 5px;
     width: 100%;
