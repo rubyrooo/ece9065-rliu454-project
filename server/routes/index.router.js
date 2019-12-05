@@ -3,6 +3,7 @@ const router = express.Router();
 
 const ctrlUser = require('../controllers/user.controller');
 const ctrlSong = require('../controllers/song.controller');
+const ctrlReview = require('../controllers/review.controller');
 
 const jwtHelper = require('../config/jwtHelper');
 
@@ -13,7 +14,11 @@ router.get('/:varify', ctrlUser.varify);
 router.post('/authenticate', ctrlUser.authenticate);
 
 
-//save a song and return id
+//save a song and return title
 router.put('/secure/song', ctrlSong.savesong);
+
+
+//save a review to a song 
+router.post('/secure/reviews/:id', ctrlReview.savereview);
 
 module.exports = router;
