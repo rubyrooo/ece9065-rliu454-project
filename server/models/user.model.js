@@ -36,9 +36,6 @@ userSchema.path('email').validate((val) => {
 
 // Events
 userSchema.pre('save', function(next) {
-    if (this.method == 'google') {
-        next();
-    }
 
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(this.password, salt, (err, hash) => {

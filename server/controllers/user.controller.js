@@ -32,9 +32,8 @@ module.exports.register = (req, res, next) => {
                 from: 'Localhost Staff, staff@localhost.com',
                 to: user.email,
                 subject: 'Localhost Activation Link',
-                //text: Hello<strong> ' + user.fullName + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://3.92.30.52:8080/varify.html?param1=' + req.body.email + '"> Click Me</a>',
-                // http://3.92.30.52:8080  is cloud 9 lab1 addredd
-                html: 'Hello<strong> ' + user.fullName + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://34.229.115.34:8080/varify.html?param1=' + req.body.email + '"> Click Me</a>'
+                text: 'Hello<strong> ' + user.fullName + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://localhost:3000/api/' + req.body.email + '"> Click Me</a>',
+                html: 'Hello<strong> ' + user.fullName + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://localhost:3000/api/' + req.body.email + '"> Click Me</a>'
 
             };
             // Function to send e-mail to the user
@@ -59,6 +58,29 @@ module.exports.register = (req, res, next) => {
 
     });
 }
+
+//Google Register
+module.exports.googleregister = (req, res, next) => {
+    var user = new User();
+    user.fullName = req.body.fullName;
+    user.email = req.body.email;
+    user.password = req.body.password;
+    user.method = 'google';
+    user.active = true;
+    user.save((err, doc) => {
+        if (!err) {
+            res.send(doc);
+
+        } else {
+            if (err.code == 11000)
+                res.status(422).send(['Duplicate email adrress found.']); // ------
+            else
+                return next(err);
+        }
+
+    });
+}
+
 
 
 

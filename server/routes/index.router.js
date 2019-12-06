@@ -9,6 +9,7 @@ const ctrlPlaylist = require('../controllers/playlist.controller');
 const jwtHelper = require('../config/jwtHelper');
 
 router.post('/register', ctrlUser.register);
+router.post('/googleregister', ctrlUser.googleregister);
 router.post('/oauth/google', ctrlUser.authenticate_google);
 router.get('/userProfile', jwtHelper.verifyJwtToken, ctrlUser.userProfile);
 router.get('/:varify', ctrlUser.varify);
