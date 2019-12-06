@@ -23,6 +23,11 @@ export class UserService {
   postUser(user: User){
     return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
   }
+
+  postGoogleUser(user: User){
+    return this.http.post(environment.apiBaseUrl+'/googleregister',user,this.noAuthHeader);
+  }
+
   login(authCredentials) {
     return this.http.post(environment.apiBaseUrl + '/authenticate', authCredentials,this.noAuthHeader);
   }
