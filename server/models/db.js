@@ -7,3 +7,4 @@ mongoose.connect(process.env.MONGODB_URI, (err) => {
 require('./user.model');
 require('./song.model');
 require('./review.model');
+require('./playlist.model');

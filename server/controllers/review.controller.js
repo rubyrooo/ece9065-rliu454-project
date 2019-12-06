@@ -22,3 +22,16 @@ module.exports.savereview = async(req, res) => {
         res.json({ message: err });
     }
 };
+
+
+// return all reviews by given song name
+/* module.exports.showreview = async(req, res) => {
+
+    try {
+        const item = await Review.findOne('songN': req.params.id);
+        res.json(item);
+    } catch (err) {
+        res.json({ message: err });
+    }
+
+}; */
