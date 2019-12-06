@@ -4,11 +4,23 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from 'ng4-social-login';
 
+const config = new AuthServiceConfig([
+{
+  id: GoogleLoginProvider.PROVIDER_ID,
+  provider: new GoogleLoginProvider('793080839530-sdr0nj1r4vn2ukhff08combdn0joq27m.apps.googleusercontent.com')
+}
+],false );
+
+export function provideConfig(){
+  return config;
+}
 // components
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
+
 
 //routes
 import { appRoutes } from './routes';
@@ -34,13 +46,18 @@ import { HomepageComponent } from './homepage/homepage.component';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    SocialLoginModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
+  providers: [
+    {provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
-    multi: true
-  },AuthGuard,UserService],
+    multi: true},
+    {provide: AuthServiceConfig,
+    useFactory: provideConfig
+    },
+
+    AuthGuard,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

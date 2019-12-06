@@ -13,6 +13,19 @@
     <input type="submit" value="Login In">
 </form>
 
+
+<a id="google-button" class="btn btn-block btn-social btn-google" *ngIf="user.photoUrl">
+    <i class="fa fa-google"></i> Sign in with Google
+</a>
+
+<div class="container-fluid">
+    <div class="row" style="text-align: -webkit-center">
+        <div class="col-md-12">
+            <button class="btn btn-primary" style="background-color: #c63d2d; border-color:#c63d2d" (click)="googlelogin()"><i class="fa fa-google"></i>GOOGLE</button>
+        </div>
+    </div>
+</div>
+
 <!-- Error message -->
 <div class="alert" *ngIf="serverErrorMessages">
     {{serverErrorMessages}}

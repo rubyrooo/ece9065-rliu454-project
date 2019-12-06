@@ -3,6 +3,8 @@ import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
 
 import { UserService } from '../../shared/user.service';
+import { SocialUser, AuthService, GoogleLoginProvider } from 'ng4-social-login';
+
 
 @Component({
   selector: 'app-sign-in',
@@ -11,12 +13,21 @@ import { UserService } from '../../shared/user.service';
 })
 export class SignInComponent implements OnInit {
 
-  constructor(private userService: UserService,private router : Router) { }
+  // google signin
+  title = 'app';
+  public user: any = SocialUser;
+
+  googlelogin(){
+    this.SocialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((userData) =>{
+      this.user = userData;
+    })
+  }
+  constructor(private userService: UserService,private router : Router,private SocialAuthService: AuthService) { }
 
   model ={
     email :'',
     password:''
-  };
+  }; 
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   serverErrorMessages: string;
   ngOnInit() {
