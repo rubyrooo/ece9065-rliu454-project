@@ -32,6 +32,7 @@ import { UserService } from './shared/user.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { HomepageComponent } from './homepage/homepage.component';
+import { LatestComponent } from './latest/latest.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     SignUpComponent,
     UserProfileComponent,
     SignInComponent,
-    HomepageComponent
+    HomepageComponent,
+    LatestComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { LatestComponent } from './latest/latest.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -20,6 +21,10 @@ export const appRoutes: Routes = [
     },
     {
         path: 'homepage', component: HomepageComponent
+      
+    },
+    {
+        path: 'latest', component: LatestComponent
       
     },
     {
