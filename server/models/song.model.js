@@ -19,7 +19,7 @@ var songSchema = new mongoose.Schema({
 
     },
     year: {
-        type: Number
+        type: String
 
     },
     comment: {
@@ -27,16 +27,16 @@ var songSchema = new mongoose.Schema({
         maxlength: [500]
     },
     reserve: {
-        type: Number
+        type: String
     },
     track: {
-        type: Number
+        type: String
     },
     genre: {
-        type: Number
+        type: String
     },
     addT: {
-        type: String
+        type: Date
 
     },
     addN: {
