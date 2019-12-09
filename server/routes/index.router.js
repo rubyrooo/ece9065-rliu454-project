@@ -28,11 +28,15 @@ router.get('/secure/reviews/:id', ctrlReview.showreview);
 
 //create a review by given song name
 router.post('/secure/playlist', ctrlPlaylist.saveplaylist);
+//get all playlist b
+router.get('/secure/playlist/:id', ctrlPlaylist.showplaylist);
 
 //search song
 router.get('/open/search/:id', ctrlSong.searchsong);
 
 //top 10 song
 router.get('/open/song', ctrlSong.topsong);
+//get song by name
+router.get('/open/song/:id', ctrlSong.showsong);
 
 module.exports = router;

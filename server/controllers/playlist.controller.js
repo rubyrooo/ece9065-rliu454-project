@@ -22,3 +22,17 @@ module.exports.saveplaylist = async(req, res) => {
         res.json({ message: err });
     }
 };
+
+
+// return all playlist by given user id
+module.exports.showplaylist = async(req, res) => {
+    var arr = new Array();
+    Playlist.aggregate(
+        [{ $match: { userN: req.params.id } }]
+    ).sort({ "playlistT": -1 }).then((list) => {
+        for (var i = 0; i < list.length; i++) { arr.push(list[i].playlistN); }
+        console.log(arr);
+        return res.status(200).send(arr);
+    })
+
+};

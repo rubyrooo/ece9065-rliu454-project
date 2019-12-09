@@ -81,3 +81,16 @@ module.exports.topsong = (req, res) => {
     })
 
 }
+
+// return song given by song name
+module.exports.showsong = async(req, res) => {
+    var arr = new Array();
+    Song.aggregate(
+        [{ $match: { title: req.params.id } }]
+    ).sort({ "addT": -1 }).then((list) => {
+        for (var i = 0; i < list.length; i++) { arr.push(list[i]); }
+        console.log(arr);
+        return res.status(200).send(arr);
+    })
+
+};

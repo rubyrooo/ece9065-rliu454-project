@@ -30,7 +30,7 @@ module.exports.showreview = async(req, res) => {
     Review.aggregate(
         [{ $match: { songN: req.params.id } }]
     ).sort({ "reviewT": -1 }).then((list) => {
-        for (var i = 0; i < list.length; i++) { arr.push(list[i].reviewC); }
+        for (var i = 0; i < list.length; i++) { arr.push(list[i]); }
         console.log(arr);
         return res.status(200).send(arr);
     })
