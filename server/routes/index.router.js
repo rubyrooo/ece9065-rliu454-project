@@ -23,7 +23,7 @@ router.put('/secure/song', ctrlSong.savesong);
 //create a review by given song name
 router.post('/secure/reviews/:id', ctrlReview.savereview);
 //get all review by given song name
-/* router.get('/secure/reviews/:id', ctrlReview.showreview); */
+router.get('/secure/reviews/:id', ctrlReview.showreview);
 
 
 //create a review by given song name

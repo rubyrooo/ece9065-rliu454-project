@@ -64,11 +64,9 @@ module.exports.searchsong = (req, res) => {
 
 /* // top 10 song
 module.exports.topsong = (req, res) => {
-
     Review.find().sort({ "rating": -1 }).limit(10).then((song) => {
         return res.status(200).send(song);
     })
-
 }; */
 
 // top 10 song
@@ -77,7 +75,7 @@ module.exports.topsong = (req, res) => {
     Review.aggregate([
         { "$group": { _id: "$songN", count: { $sum: 1 } } }
     ]).sort({ "count": -1 }).limit(10).then((list) => {
-        for (var i = 0; i < list.length; i++) { arr.push(list[i]); }
+        for (var i = 0; i < list.length; i++) { arr.push(list[i]._id); } // get _id from { "_id": "song5", "count": 4 }
         console.log(arr);
         return res.status(200).send(arr);
     })

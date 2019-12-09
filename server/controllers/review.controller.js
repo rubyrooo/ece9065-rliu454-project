@@ -25,13 +25,14 @@ module.exports.savereview = async(req, res) => {
 
 
 // return all reviews by given song name
-/* module.exports.showreview = async(req, res) => {
+module.exports.showreview = async(req, res) => {
+    var arr = new Array();
+    Review.aggregate(
+        [{ $match: { songN: req.params.id } }]
+    ).sort({ "reviewT": -1 }).then((list) => {
+        for (var i = 0; i < list.length; i++) { arr.push(list[i].reviewC); }
+        console.log(arr);
+        return res.status(200).send(arr);
+    })
 
-    try {
-        const item = await Review.findOne('songN': req.params.id);
-        res.json(item);
-    } catch (err) {
-        res.json({ message: err });
-    }
-
-}; */
+};
