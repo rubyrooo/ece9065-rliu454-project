@@ -19,7 +19,7 @@ export class UserService {
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
 
   constructor(private http: HttpClient) { }
-   //HttpMethods
+   //Http Methods
   postUser(user: User){
     return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
   }
