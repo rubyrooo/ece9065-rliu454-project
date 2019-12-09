@@ -31,7 +31,7 @@ router.post('/secure/playlist', ctrlPlaylist.saveplaylist);
 //get all playlist b
 router.get('/secure/playlist/:id', ctrlPlaylist.showplaylist);
 
-//search song
+//soft search song
 router.get('/open/search/:id', ctrlSong.searchsong);
 
 //top 10 song
