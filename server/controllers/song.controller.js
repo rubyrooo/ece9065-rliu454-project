@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Song = mongoose.model('Song');
+const Review = mongoose.model('Review');
 
 
 
@@ -61,14 +62,24 @@ module.exports.searchsong = (req, res) => {
 };
 
 
-// top 10 song
+/* // top 10 song
 module.exports.topsong = (req, res) => {
 
-    Song.find().sort({ "title": -1 }).limit(10).then((song) => {
-
+    Review.find().sort({ "rating": -1 }).limit(10).then((song) => {
         return res.status(200).send(song);
     })
 
+}; */
 
+// top 10 song
+module.exports.topsong = (req, res) => {
+    var arr = new Array();
+    Review.aggregate([
+        { "$group": { _id: "$songN", count: { $sum: 1 } } }
+    ]).sort({ "count": -1 }).limit(10).then((list) => {
+        for (var i = 0; i < list.length; i++) { arr.push(list[i]); }
+        console.log(arr);
+        return res.status(200).send(arr);
+    })
 
-};
+}
