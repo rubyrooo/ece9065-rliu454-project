@@ -34,6 +34,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LatestComponent } from './latest/latest.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { LatestComponent } from './latest/latest.component';
     SignInComponent,
     HomepageComponent,
     LatestComponent
+
   ],
   imports: [
     BrowserModule,

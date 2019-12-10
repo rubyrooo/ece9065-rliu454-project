@@ -1,18 +1,7 @@
-<div class="site-header">
-    <div class="container">
-        <div class="main-navigation">
-            <div class="search-form">
-                <input type="text" placeholder="Search...">
-                <button class="toggle-menu"><i class="fa fa-bars"></i></button>
-            </div>
-        </div>
-        <!-- .main-navigation -->
-    </div>
-    <!-- .container -->
-</div>
-<!-- .site-header -->
-
-
+<form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)" class="search-result">
+    <input type="text" placeholder="Search..." name="id" [(ngModel)]="id"> <input type="submit">
+    <div id="li"></div>
+</form>
 
 
 <table *ngIf="topList" class="table-fill">
