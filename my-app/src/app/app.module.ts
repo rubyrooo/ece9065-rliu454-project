@@ -33,6 +33,9 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LatestComponent } from './latest/latest.component';
+import { NewsongComponent } from './user-profile/newsong/newsong.component';
+import { NewplaylistComponent } from './user-profile/newplaylist/newplaylist.component';
+
 
 
 @NgModule({
@@ -43,7 +46,10 @@ import { LatestComponent } from './latest/latest.component';
     UserProfileComponent,
     SignInComponent,
     HomepageComponent,
-    LatestComponent
+    LatestComponent,
+    NewsongComponent,
+    NewplaylistComponent
+   
 
   ],
   imports: [

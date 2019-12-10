@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import { Router } from "@angular/router";
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -14,6 +15,7 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     this.userService.getUserProfile().subscribe(
       res => {
+        /* this.AppComponent.owner = this.UserDtials.email; */
         this.userDetails = res['user'];
       },
       err => { 

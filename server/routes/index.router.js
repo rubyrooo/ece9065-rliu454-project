@@ -17,7 +17,7 @@ router.post('/authenticate', ctrlUser.authenticate);
 
 
 //create a song and return title
-router.put('/secure/song', ctrlSong.savesong);
+router.post('/secure/song', ctrlSong.savesong);
 
 
 //create a review by given song name

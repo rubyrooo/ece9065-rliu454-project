@@ -1,0 +1,22 @@
+<form #signInForm="ngForm" (ngSubmit)="newsongForm.valid && onSubmit(newsongForm)">
+    <input type="text" name="title" #title="ngModel" [(ngModel)]="model.title" placeholder="Title" required>
+    <input type="text" name="artist" #title="ngModel" [(ngModel)]="model.artist" placeholder="Artist" required>
+    <input type="text" name="alblum" #title="ngModel" [(ngModel)]="model.alblum" placeholder="Alblum">
+    <input type="text" name="year" #title="ngModel" [(ngModel)]="model.year" placeholder="Year">
+    <input type="text" name="comment" #title="ngModel" [(ngModel)]="model.comment" placeholder="Comment">
+    <input type="text" name="reserve" #title="ngModel" [(ngModel)]="model.reserve" placeholder="Reserve">
+    <input type="text" name="track" #title="ngModel" [(ngModel)]="model.track" placeholder="Track">
+    <input type="text" name="genre" #title="ngModel" [(ngModel)]="model.genre" placeholder="Genre">
+
+    <input type="submit" value="Create New Song">
+
+</form>
+<!-- Succeed message -->
+<div class="alert" *ngIf="serverSuccessMessages">
+    {{serverSuccessMessages}}
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+    {{serverErrorMessages}}
+</div>
