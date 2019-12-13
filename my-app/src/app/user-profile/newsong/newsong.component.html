@@ -1,16 +1,17 @@
-<form #newsongForm="ngForm" (ngSubmit)="newsongForm.valid && onSubmit(newsongForm)">
-    <input type="text" name="title" #title="ngModel" [(ngModel)]="songService.model.title" placeholder="Title" required>
-    <input type="text" name="artist" #title="ngModel" [(ngModel)]="songService.model.artist" placeholder="Artist" required>
-    <input type="text" name="alblum" #title="ngModel" [(ngModel)]="songService.model.alblum" placeholder="Alblum">
-    <input type="text" name="year" #title="ngModel" [(ngModel)]="songService.model.year" placeholder="Year">
-    <input type="text" name="comment" #title="ngModel" [(ngModel)]="songService.model.comment" placeholder="Comment">
-    <input type="text" name="reserve" #title="ngModel" [(ngModel)]="songService.model.reserve" placeholder="Reserve">
-    <input type="text" name="track" #title="ngModel" [(ngModel)]="songService.model.track" placeholder="Track">
-    <input type="text" name="genre" #title="ngModel" [(ngModel)]="songService.model.genre" placeholder="Genre">
+<input type="text" id="header" name="header" [(ngModel)]="songService.model.header" placeholder="Header" value="" required>
+<input type="text" id="title" name="title" [(ngModel)]="songService.model.title" placeholder="Title" value="" required>
+<input type="text" id="artist" name="artist" [(ngModel)]="songService.model.artist" placeholder="Artist" value="" required>
+<input type="text" id="alblum" name="alblum" [(ngModel)]="songService.model.alblum" placeholder="Alblum" value="">
+<input type="text" id="year" name="year" [(ngModel)]="songService.model.year" placeholder="Year" value="">
+<input type="text" id="comment" name="comment" [(ngModel)]="songService.model.comment" placeholder="Comment" value="">
+<input type="text" id="reserve" name="reserve" [(ngModel)]="songService.model.reserve" placeholder="Reserve" value="">
+<input type="text" id="track" name="track" [(ngModel)]="songService.model.track" placeholder="Track" value="">
+<input type="text" id="genre" name="genre" [(ngModel)]="songService.model.genre" placeholder="Genre" value="">
+<button type="button" (click)="onSubmit()">Create New Song</button>
 
-    <input type="submit" value="Create New Song">
 
-</form>
+
+
 <!-- Succeed message -->
 <div class="success" *ngIf="serverSuccessMessages">
     {{serverSuccessMessages}}

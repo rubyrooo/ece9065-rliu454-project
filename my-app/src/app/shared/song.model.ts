@@ -8,6 +8,7 @@ export class Song {
     reserve: string;
     track: string;
     genre: string;
+    addN: string;
 }
 
 

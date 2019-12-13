@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AppComponent } from '../../app.component';
 import { UserProfileComponent } from '../user-profile.component';
 
 import { SongService } from '../../shared/song.service';
@@ -11,28 +12,45 @@ import { SongService } from '../../shared/song.service';
 })
 export class NewsongComponent implements OnInit {
 
-  constructor(private songService: SongService,private userprofileComponent: UserProfileComponent) { }
+  constructor(private songService: SongService,private appComponent: AppComponent) { }
 
   ngOnInit() {
-    console.log("THERE"+this.userprofileComponent)
+
   }
   serverSuccessMessages: String;
   serverErrorMessages: String;
   
-  onSubmit(newsongForm : NgForm){
-    this.songService.postSong(newsongForm.value).subscribe(
+
+
+  onSubmit(){
+    var addheader = document.getElementById('header')["value"];
+    var addtitle = document.getElementById('title')["value"];
+    var addartist = document.getElementById('artist')["value"];
+    var addalblum = document.getElementById('alblum')["value"];
+    var addyear = document.getElementById('year')["value"];
+    var addcomment = document.getElementById('comment')["value"];
+    var addreserve = document.getElementById('reserve')["value"];
+    var addtrack = document.getElementById('track')["value"];
+    var addgenre = document.getElementById('genre')["value"];
+
+    console.log("addheader"+addheader) //get user email 
+
+    this.songService.postSong( {header: addheader,title:addtitle, artist: addartist, alblum:addalblum, year:addyear,comment: addcomment,reserve: addreserve, track:addtrack, genre:addgenre, addN:this.appComponent.owner }).subscribe(      
       res => {
-        this.serverSuccessMessages = "Create Successfully";
-        this.resetForm(newsongForm);
+      console.log("THERE"+this.appComponent.owner) //get user email 
 
-      },
-      err => {
-        this.serverErrorMessages = err.error.message;
-      }
-    )
-  }
+      this.serverSuccessMessages = "Create Successfully";
+      this.resetForm();
 
-  resetForm(newsongForm: NgForm) {
+    },
+    err => {
+      this.serverErrorMessages = err.error.message;
+    }
+
+
+    )}
+
+  resetForm() {
     this.songService.model = {
       header:  '',
       title: '',
@@ -42,9 +60,10 @@ export class NewsongComponent implements OnInit {
       comment: '', 
       reserve: '',
       track: '',
-      genre: ''
+      genre: '',
+      addN: ''
     };
-    newsongForm.resetForm();
+
     
   }
 

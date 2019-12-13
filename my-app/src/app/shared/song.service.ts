@@ -17,7 +17,8 @@ export class SongService {
     comment: '', 
     reserve: '',
     track: '',
-    genre: ''
+    genre: '',
+    addN: ''
   };
 
   constructor(private http: HttpClient) { }

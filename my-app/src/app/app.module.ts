@@ -35,6 +35,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LatestComponent } from './latest/latest.component';
 import { NewsongComponent } from './user-profile/newsong/newsong.component';
 import { NewplaylistComponent } from './user-profile/newplaylist/newplaylist.component';
+import { PlaylistComponent } from './shared/playlist/playlist.component';
 
 
 
@@ -48,7 +49,8 @@ import { NewplaylistComponent } from './user-profile/newplaylist/newplaylist.com
     HomepageComponent,
     LatestComponent,
     NewsongComponent,
-    NewplaylistComponent
+    NewplaylistComponent,
+    PlaylistComponent
    
 
   ],

@@ -10,16 +10,20 @@ import { AppComponent } from '../app.component';
 })
 export class UserProfileComponent implements OnInit {
   userDetails;
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, public appComponent: AppComponent) { }
 
   ngOnInit() {
     this.userService.getUserProfile().subscribe(
       res => {
-        /* this.AppComponent.owner = this.UserDtials.email; */
+      
         this.userDetails = res['user'];
+        this.appComponent.owner = this.userDetails.email;
+        console.log("Where"+ this.appComponent.owner);
+        
+   
       },
       err => { 
-        console.log(err);
+        
         
       }
     );

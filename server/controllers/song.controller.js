@@ -34,6 +34,7 @@ module.exports.savesong = async(req, res) => {
 // soft search song
 module.exports.searchsong = (req, res) => {
     var word = req.params.id;
+    word = word.replace(/\s/g, "");
     console.log(word);
     var _filter = {
         $or: [
