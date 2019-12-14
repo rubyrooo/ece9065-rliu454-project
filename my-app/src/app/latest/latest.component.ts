@@ -3,6 +3,8 @@ import { NgForm} from '@angular/forms';
 import { LatestService } from '../shared/latest.service';
 import { Router } from "@angular/router";
 import { AppComponent } from '../app.component';
+import { UserService } from '../shared/user.service';
+
 @Component({
   selector: 'app-latest',
   templateUrl: './latest.component.html',
@@ -14,7 +16,11 @@ export class LatestComponent implements OnInit {
   reviewList;
   details = new Array;
   buttonInfo;
-  constructor( private latestService: LatestService, private router: Router, public appComponent: AppComponent) { }
+  login;
+  userDetails;
+ 
+
+  constructor( private userService: UserService, private latestService: LatestService, private router: Router, public appComponent: AppComponent) { }
 
   ngOnInit() {
     this.latestService.getTopTen().subscribe(
@@ -28,15 +34,30 @@ export class LatestComponent implements OnInit {
       err => { 
         console.log(err);
         
-      });  
+      }); 
+
+      if(this.userService.isLoggedIn()){
+        this.login=true;
+      
+      this.userService.getUserProfile().subscribe(
+        res => {
+          this.userDetails = res['user'];  
+          console.log(this.userDetails.email)
+        },
+        err => { 
+          console.log(err);
+          
+        })}
+      
+
+      
   }
 
+  //search song result
   onSubmit(form: NgForm) {
     this.latestService.searchSong(form.value.id).subscribe(
       res => {
-  
         this.songList = res;
-    
       },
       err => { 
         console.log(err);
@@ -44,7 +65,7 @@ export class LatestComponent implements OnInit {
       });
   }
  
-    showDetails(i) {
+  showDetails(i) {
   
       if(this.details[i]==true){
         this.details[i]=false;
@@ -67,9 +88,11 @@ export class LatestComponent implements OnInit {
         
       });
   };
+
   writereview(songTitle){
-    var user = this.appComponent.owner;
-    console.log("!!"+this.appComponent.owner);
+
+    //get current user profile
+    //var user = this.appComponent.owner;
     var review = prompt("Please enter your reivew:", "Review...");
     var rating = prompt("Please enter your rating 1-5:", "Raing");
     if (review == null || rating == "") {
@@ -77,7 +100,7 @@ export class LatestComponent implements OnInit {
       rating = prompt("Please enter your rating 1-5:", "Raing");
     } else {
 
-      this.latestService.writeReview({songN:songTitle, reviewerN:user, rating:rating,reviewC:review }).subscribe(
+      this.latestService.writeReview({songN:songTitle, reviewerN: this.userDetails.email, rating:rating,reviewC:review }).subscribe(
         res => {
       
           
@@ -92,3 +115,4 @@ export class LatestComponent implements OnInit {
   }
 
 }
+

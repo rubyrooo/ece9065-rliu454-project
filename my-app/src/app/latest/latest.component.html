@@ -27,8 +27,8 @@
                 <p>Review: {{reviewList[j].reviewC}}</p><br>
             </ul>
 
-            <button (click)="writereview(songList[i].title)">Write Review</button>
-            <button (click)="addList(songList[i].title)">Add to List</button>
+            <button *ngIf="login" (click)="writereview(songList[i].title)">Write Review</button>
+            <button *ngIf="login" (click)="addList(songList[i].title)">Add to List</button>
         </li>
     </ul>
 </div>
