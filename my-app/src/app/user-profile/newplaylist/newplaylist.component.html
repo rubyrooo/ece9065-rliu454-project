@@ -1,17 +1,12 @@
-<input type="text" id="header" name="header" [(ngModel)]="songService.model.header" placeholder="Header" value="" required>
-<input type="text" id="title" name="title" [(ngModel)]="songService.model.title" placeholder="Title" value="" required>
-<input type="text" id="artist" name="artist" [(ngModel)]="songService.model.artist" placeholder="Artist" value="" required>
-<input type="text" id="alblum" name="alblum" [(ngModel)]="songService.model.alblum" placeholder="Alblum" value="">
-<input type="text" id="year" name="year" [(ngModel)]="songService.model.year" placeholder="Year" value="">
-<input type="text" id="comment" name="comment" [(ngModel)]="songService.model.comment" placeholder="Comment" value="">
-<input type="text" id="reserve" name="reserve" [(ngModel)]="songService.model.reserve" placeholder="Reserve" value="">
-<input type="text" id="track" name="track" [(ngModel)]="songService.model.track" placeholder="Track" value="">
-<input type="text" id="genre" name="genre" [(ngModel)]="songService.model.genre" placeholder="Genre" value="">
-<button type="button" (click)="onSubmit()">Create New Song List</button>
-
+<input type="text" id="playlistN" name="playlistN" [(ngModel)]="playlistService.model.playlistN" placeholder="Playlist Title" value="" required>
+<select type="text" id="status" name="status" [(ngModel)]="playlistService.model.status"><option value="public">public</option><option value="private" required>private</option></select>
+<input type="text" id="description" name="description" [(ngModel)]="playlistService.model.description" placeholder="Description" value="">
+<div>
+    <button class="button" (click)="onSubmit()">Create New Song List</button>
+</div>
 
 <!-- Succeed message -->
-<div class="alert" *ngIf="serverSuccessMessages">
+<div class="success" *ngIf="serverSuccessMessages">
     {{serverSuccessMessages}}
 </div>
 
@@ -19,3 +14,32 @@
 <div class="alert" *ngIf="serverErrorMessages">
     {{serverErrorMessages}}
 </div>
+
+
+<style>
+    .button {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+    
+    select {
+        margin: 20px;
+        background: rgba(0, 0, 0, 0);
+        width: 1080px;
+        height: 60px;
+        font-size: 18px;
+        color: white;
+        text-align: center;
+        border: 1px #1a1a1a solid;
+        border-radius: 5px;
+        display: inline-block;
+    }
+</style>

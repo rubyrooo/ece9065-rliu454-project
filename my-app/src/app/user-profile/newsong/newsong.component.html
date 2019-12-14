@@ -7,7 +7,7 @@
 <input type="text" id="reserve" name="reserve" [(ngModel)]="songService.model.reserve" placeholder="Reserve" value="">
 <input type="text" id="track" name="track" [(ngModel)]="songService.model.track" placeholder="Track" value="">
 <input type="text" id="genre" name="genre" [(ngModel)]="songService.model.genre" placeholder="Genre" value="">
-<button type="button" (click)="onSubmit()">Create New Song</button>
+<button class="button" (click)="onSubmit()">Create New Song</button>
 
 
 
@@ -21,3 +21,19 @@
 <div class="alert" *ngIf="serverErrorMessages">
     {{serverErrorMessages}}
 </div>
+
+
+<style>
+    .button {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+</style>

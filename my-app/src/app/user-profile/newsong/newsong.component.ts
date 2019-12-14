@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AppComponent } from '../../app.component';
-import { UserProfileComponent } from '../user-profile.component';
+
 
 import { SongService } from '../../shared/song.service';
 

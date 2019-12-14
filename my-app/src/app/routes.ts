@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LatestComponent } from './latest/latest.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -36,6 +37,10 @@ export const appRoutes: Routes = [
     {
         path: 'latest', component: LatestComponent
       
+    },
+    {
+        path: 'playlist', component: PlaylistComponent
+
     },
     {
         path: '', redirectTo: '/homepage', pathMatch: 'full'

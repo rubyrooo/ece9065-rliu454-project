@@ -20,8 +20,8 @@ router.post('/authenticate', ctrlUser.authenticate);
 router.post('/secure/song', ctrlSong.savesong);
 
 
-//create a review by given song name
-router.post('/secure/reviews/:id', ctrlReview.savereview);
+//create a review by
+router.post('/secure/reviews', ctrlReview.savereview);
 //get all review by given song name
 router.get('/secure/reviews/:id', ctrlReview.showreview);
 

@@ -3,38 +3,42 @@
     <div id="li"></div>
 </form>
 
+<div class="result" *ngIf="songList">
+    <ul *ngFor="let index of this.songList; let i = index">
+        <li> Name of Song: {{songList[i].title}}
+            <button (click)="showDetails(i)">>> {{buttonInfo}}</button>
+            <div *ngIf="details[i]">
+                <p>Artist: {{songList[i].artist}}</p>
+                <p>Alblum: {{songList[i].alblum}}</p>
+                <p>Year: {{songList[i].year}}</p>
+                <p>Comment: {{songList[i].comment}}</p>
+                <p>Reserve: {{songList[i].reserve}}</p>
+                <p>Track: {{songList[i].track}}</p>
+                <p>Genre: {{songList[i].genre}}</p>
+                <p>Add Time: {{songList[i].addT}}</p>
 
-<table *ngIf="topList" class="table-fill">
-    <thead>
-        <tr>
-            <th colspan="2" class="text-center">Top Song</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Name</td>
-            <td>Popularity </td>
+            </div>
+            <button (click)="checkreview(songList[i].title)">View Review</button>
 
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td>{{topList[0]._id}}</td>
-            <td>{{topList[0].count}}</td>
+            <ul *ngFor="let index of this.reviewList; let j = index">
+                <p>Create Time: {{reviewList[j].reviewT}}</p>
+                <p>Reviewer: {{reviewList[j].reviewerN}}</p>
+                <p>Rating: {{reviewList[j].rating}}</p>
+                <p>Review: {{reviewList[j].reviewC}}</p><br>
+            </ul>
 
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td>{{topList[1]._id}}</td>
-            <td>{{topList[1].count}}</td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td>{{topList[2]._id}}</td>
-            <td>{{topList[2].count}}</td>
-        </tr>
-    </tbody>
+            <button (click)="writereview(songList[i].title)">Write Review</button>
+            <button (click)="addList(songList[i].title)">Add to List</button>
+        </li>
+    </ul>
+</div>
 
-</table>
+
+<div class="topresult" *ngIf="topList">
+    <p>TOP TEN</p>
+    <ul *ngFor="let index of this.topList; let i = index">
+        <li> Name of Song: {{topList[i]._id}} Popularity: {{topList[i].count}}
+            <!-- <button (click)="showDetails(i)">{{buttonInfo[i]}}</button> -->
+        </li>
+    </ul>
+</div>

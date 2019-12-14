@@ -20,6 +20,11 @@ var playlistSchema = new mongoose.Schema({
     },
     playlistT: {
         type: Date
+    },
+    songlist: {
+
+        type: Array
+
     }
 });
 

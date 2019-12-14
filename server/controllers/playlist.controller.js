@@ -12,7 +12,9 @@ module.exports.saveplaylist = async(req, res) => {
         playlistN: req.body.playlistN,
         status: req.body.status,
         description: req.body.description,
-        playlistT: currentTime
+        playlistT: currentTime,
+        songlist: req.body.songlist
+
     });
 
     try {

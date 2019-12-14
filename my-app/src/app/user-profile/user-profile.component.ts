@@ -19,7 +19,6 @@ export class UserProfileComponent implements OnInit {
         this.userDetails = res['user'];
         this.appComponent.owner = this.userDetails.email;
         console.log("Where"+ this.appComponent.owner);
-        
    
       },
       err => { 
