@@ -29,16 +29,48 @@ module.exports.saveplaylist = async(req, res) => {
 
 // return all playlist by given user id
 module.exports.showplaylist = async(req, res) => {
-    var arr = new Array();
+
+    songList = new Array();
+
     Playlist.aggregate(
         [{ $match: { userN: req.params.id } }]
     ).sort({ "playlistT": -1 }).then((list) => {
-        for (var i = 0; i < list.length; i++) { arr.push(list[i].playlistN); }
-        console.log(arr);
-        return res.status(200).send(arr);
+
+        console.log("HERE!!!!");
+        console.log(list);
+        return res.status(200).send(list);
     })
 
 };
+
+//delect song by given userN, playlistN
+module.exports.deletesongtoplaylist = async(req, res, next) => {
+
+    var newuserN = req.body.userN;
+    var newplaylistN = req.body.playlistN;
+    var newsongN = req.body.songN;
+
+    newsongList = new Array;
+    var sample = new Playlist();
+
+    try {
+        sample = await Playlist.findOne({ playlistN: newplaylistN, userN: newuserN });
+        console.log(sample.songList);
+    } catch (error) {
+        next(error);
+    }
+    for (j = 0; j < sample.songList.length; j++) {
+        if (sample.songList[j] != newsongN) {
+            newsongList.push(sample.songList[j]);
+        }
+    }
+    console.log(newsongList)
+    await Playlist.findOneAndUpdate({ playlistN: newplaylistN, userN: newuserN }, { $set: { songList: newsongList } }).then((updatedDoc) => {
+        res.send(updatedDoc);
+
+    });
+}
+
 
 
 
@@ -92,6 +124,9 @@ module.exports.savesongtoplaylist = async(req, res) => {
     var getuserN = req.body.userN;
     var getplaylistN = req.body.playlistN;
     var getsongN = req.body.songN;
+    console.log("A", getuserN);
+    console.log("B", getplaylistN);
+    console.log("C", getsongN);
     var newplaylist = new Playlist();
     var time = new Date;
     var t = time.getTime();
@@ -153,8 +188,7 @@ module.exports.addasmyplaylist = async(req, res) => {
     var getplaylistN = req.body.playlistN;
     var getcreaterN = req.body.createrN;
 
-    console.log("!!!!playlist " + getplaylistN)
-    console.log("!!!user" + getuserN)
+
     try {
 
         var match = await Playlist.findOne({ playlistN: getplaylistN, userN: getuserN });

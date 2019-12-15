@@ -24,7 +24,7 @@ export class NewplaylistComponent implements OnInit {
     this.playlistN_userN_songN = addplaylistN+"0"+this.appComponent.owner;
     console.log("playlistN_userN_songN"+this.playlistN_userN_songN);
 
-    this.appComponent.owner
+
 
     this.playlistService.postPlaylist( {playlistN: addplaylistN, status:addstatus, description: adddescription, userN:this.appComponent.owner,songList:[]}).subscribe(      
       res => {

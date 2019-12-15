@@ -29,7 +29,7 @@ export class LatestComponent implements OnInit {
       res => {
         
         this.topList = res;
-        console.log("Here");
+       
         console.log(res);
 
       },

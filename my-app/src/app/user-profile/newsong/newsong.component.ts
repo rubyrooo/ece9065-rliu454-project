@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AppComponent } from '../../app.component';
-
+import { LatestService } from '../../shared/latest.service';
 
 import { SongService } from '../../shared/song.service';
 
@@ -12,7 +12,7 @@ import { SongService } from '../../shared/song.service';
 })
 export class NewsongComponent implements OnInit {
 
-  constructor(private songService: SongService,private appComponent: AppComponent) { }
+  constructor(private latestService: LatestService,private songService: SongService,private appComponent: AppComponent) { }
 
   ngOnInit() {
 
@@ -38,7 +38,32 @@ export class NewsongComponent implements OnInit {
     this.songService.postSong( {header: addheader,title:addtitle, artist: addartist, alblum:addalblum, year:addyear,comment: addcomment,reserve: addreserve, track:addtrack, genre:addgenre, addN:this.appComponent.owner }).subscribe(      
       res => {
       console.log("THERE"+this.appComponent.owner) //get user email 
-      //
+      
+      
+      
+    //----------------------- start create review -----------------------
+    
+    var review = prompt("Please enter your reivew:", "Review...");
+    var rating = prompt("Please enter your rating 1-5:", "Raing");
+    if (review == null ) {
+      review = prompt("Review cannot be blank:", "Review...");
+      
+    } else if(Number(rating)>5 || Number(rating)<1 ){
+      rating = prompt("Rating should in range 1-5:", "Raing...");
+    }
+
+    this.latestService.writeReview({songN:addtitle, reviewerN: this.appComponent.owner, rating:rating,reviewC:review }).subscribe(
+      res => {
+        console.log("Write Review successed");
+
+      },
+      err => { 
+        console.log(err);
+        
+      });
+
+    //----------------------- end create review -----------------------
+
       this.serverSuccessMessages = "Create Successfully";
       this.resetForm();
 

@@ -33,3 +33,60 @@
         <router-outlet></router-outlet>
     </div>
 </div>
+
+
+
+<div class="result" *ngIf="myPlaylist">
+    <ul *ngFor="let index of this.myPlaylist; let i = index;">
+        <li> Name of Playlist: {{myPlaylist[i].playlistN}}
+            <p>Description: {{myPlaylist[i].description}}
+                <p>Status: {{myPlaylist[i].status}}</p>
+                <p>Create Time: {{myPlaylist[i].playlistT}}</p>
+
+                <div>
+                    <label>Description:   </label> <input type="text" required [(ngModel)]="description" id="description" name="description" value="" placeholder="Please enter new description...">
+                    <button (click)="Modify(i)">Modify Description {{buttonInfo[i]}}</button>
+                </div>
+                <div>
+                    <label>Status:   </label> <select required [(ngModel)]="status" name="status" id="status"><option value="private">private</option><option value="public">public</option></select>
+                    <button (click)="Changestatus(i)">Change Status {{buttonInfo[i]}}</button>
+                </div>
+
+
+                Song name: {{myPlaylist[i].songList}}
+                <button (click)="deletesongclick(i)">Delete Song</button>
+                <div *ngIf="show">
+                    <p *ngFor="let index of this.temp; let j=index;">
+                        {{temp[j]}} <button (click)="deletesong(j)">Delete this Song</button>
+                    </p>
+                    <div *ngIf="showSuccessMessage">{{showSuccessMessage}}</div>
+                </div>
+        </li><br>
+
+    </ul>
+</div>
+
+<style>
+    select {
+        background: rgba(0, 0, 0, 0);
+        width: 200px;
+        height: 30px;
+        font-size: 18px;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        border: 1px #fffffff7 solid;
+        border-radius: 5px;
+    }
+    
+    input {
+        background: rgba(0, 0, 0, 0);
+        width: 600px;
+        height: 60px;
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.824);
+        text-align: center;
+        border: 1px #fffffff7 solid;
+        border-radius: 5px;
+        display: inline-block;
+    }
+</style>

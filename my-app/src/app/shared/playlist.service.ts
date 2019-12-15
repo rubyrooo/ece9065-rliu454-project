@@ -44,7 +44,7 @@ export class PlaylistService {
     return this.http.get(environment.apiBaseUrl + '/secure/search/playlist/' + id);
   }
 
-
+  //not used!!
   searchSonginplaylist(playlistN_userN){
     return this.http.get(environment.apiBaseUrl + '/secure/search/playlistsong/' + playlistN_userN);
   }
@@ -52,5 +52,17 @@ export class PlaylistService {
   addasmyplaylist(user_creater_playlist: User_Creater_Playlist){
     return this.http.post(environment.apiBaseUrl+ '/secure/addasmyplaylist', user_creater_playlist);
   }
+
+  //get user's playlist
+  getmyPlaylist(id){
+    return this.http.get(environment.apiBaseUrl+ '/secure/playlist/'+ id);
+  }
+
+    //delete song in playlist
+  deletesonginPlaylist(userplaylist: Userplaylist){
+    return this.http.post(environment.apiBaseUrl+ '/secure/deletesongplaylist', userplaylist);
+  }
+
+  
 
 }
