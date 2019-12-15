@@ -4,20 +4,17 @@
 </form>
 
 <div class="result" *ngIf="playlistList">
-    <ul *ngFor="let index of this.playlistList; let i = index">
+    <ul *ngFor="let index of this.playlistList; let i = index;">
         <li> Name of Playlist: {{playlistList[i].playlistN}}
             <button (click)="showDetails(i)">>> {{buttonInfo[i]}}</button>
             <div *ngIf="details[i]">
                 <p>Description: {{playlistList[i].description}}</p>
+                <p>Creater: {{playlistList[i].userN}}</p>
+                <p>List of Song: {{playlistList[i].songList}}</p>
 
             </div>
 
-            <button (click)="checksonginplaylist(playlistList[i])">View Songs</button>
-            <ul *ngFor="let index of this.songinPlaylist; let j = index">
-                <p>Song Name: {{songinPlaylist[j].songN}}</p>
-            </ul>
-
-            <button (click)="addList(playlistList[i].playlistN)">Add Playlist</button>
+            <button (click)="addPlaylist(playlistList[i].userN, playlistList[i].playlistN)">Add Playlist</button>
         </li>
     </ul>
 </div>

@@ -30,6 +30,8 @@ router.get('/secure/reviews/:id', ctrlReview.showreview);
 router.post('/secure/playlist', ctrlPlaylist.saveplaylist);
 //add a song to playlist by given playlistN,userN,songN
 router.post('/secure/savesongplaylist', ctrlPlaylist.savesongtoplaylist);
+//add a playlist by given playlistN,userN,createrN
+router.post('/secure/addasmyplaylist', ctrlPlaylist.addasmyplaylist);
 
 //get all playlist by userid
 router.get('/secure/playlist/:id', ctrlPlaylist.showplaylist);

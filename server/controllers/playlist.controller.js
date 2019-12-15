@@ -143,3 +143,54 @@ module.exports.savesongtoplaylist = async(req, res) => {
 
     }
 }
+
+
+
+// save playlist 
+module.exports.addasmyplaylist = async(req, res) => {
+
+    var getuserN = req.body.userN;
+    var getplaylistN = req.body.playlistN;
+    var getcreaterN = req.body.createrN;
+
+    console.log("!!!!playlist " + getplaylistN)
+    console.log("!!!user" + getuserN)
+    try {
+
+        var match = await Playlist.findOne({ playlistN: getplaylistN, userN: getuserN });
+
+    } catch (error) {
+        next(error);
+    }
+
+
+    if (match != null) {
+        console.log("playlist exist")
+        return;
+    } else {
+        var currentplaylist = await Playlist.findOne({ playlistN: getplaylistN, userN: getcreaterN });
+
+        newdsongList = currentplaylist.songList;
+        newdescription = currentplaylist.description;
+        newstatus = "private";
+
+        var d = new Date();
+        var currentTime = d.getTime();
+        let playlist = new Playlist({
+            userN: getuserN,
+            playlistN: getplaylistN,
+            status: newstatus,
+            description: newdescription,
+            playlistT: currentTime,
+            songList: newdsongList,
+        });
+
+        try {
+            const savedplaylist = await playlist.save();
+            res.json(savedplaylist);
+        } catch (err) {
+            res.json({ message: err });
+        }
+
+    }
+}

@@ -38,7 +38,7 @@ export class NewsongComponent implements OnInit {
     this.songService.postSong( {header: addheader,title:addtitle, artist: addartist, alblum:addalblum, year:addyear,comment: addcomment,reserve: addreserve, track:addtrack, genre:addgenre, addN:this.appComponent.owner }).subscribe(      
       res => {
       console.log("THERE"+this.appComponent.owner) //get user email 
-
+      //
       this.serverSuccessMessages = "Create Successfully";
       this.resetForm();
 

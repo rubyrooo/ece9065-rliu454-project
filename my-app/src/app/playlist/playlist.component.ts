@@ -3,6 +3,7 @@ import { NgForm} from '@angular/forms';
 import { PlaylistService } from '../shared/playlist.service';
 import { Router } from "@angular/router";
 import { AppComponent } from '../app.component';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-playlist',
@@ -14,10 +15,25 @@ export class PlaylistComponent implements OnInit {
   reviewList;
   details = new Array;
   buttonInfo =new Array;
-  songinPlaylist;
+  songinPlaylist;  
+  login;
+  userDetails;
+  result;
 
-  constructor(private playlistService: PlaylistService, private router: Router, public appComponent: AppComponent) { }
+  constructor(private userService: UserService, private playlistService: PlaylistService, private router: Router, public appComponent: AppComponent) { }
   ngOnInit() {
+      if(this.userService.isLoggedIn()){
+        this.login=true;
+      
+      this.userService.getUserProfile().subscribe(
+        res => {
+          this.userDetails = res['user'];  
+          console.log(this.userDetails.email)
+        },
+        err => { 
+          console.log(err);
+          
+        })}
   }
 
   onSubmit(form: NgForm) {
@@ -58,22 +74,19 @@ export class PlaylistComponent implements OnInit {
   };
 
     //playlistN_userN aa0b  aa: playlistN b: userN
-    addList(playlistN, userN){
-      var playlistN_userN = playlistN+"0"+userN;
-      console.log("playlistN_userN"+playlistN_userN);
-      this.playlistService.searchSonginplaylist(playlistN_userN).subscribe(
-        res => {
+
+    addPlaylist(creater,playlist){
+      
+        this.playlistService.addasmyplaylist({ createrN:creater, playlistN:playlist, userN:this.userDetails.email }).subscribe(
+          res => {
+            this.result = res;
+          },
+          err => { 
+            console.log(err);
+            
+          });
+    }
+    
   
-          this.songinPlaylist = res;
-        },
-        err => { 
-          console.log(err);
-          
-        });
-    };
-  
-
-
-
 
 }

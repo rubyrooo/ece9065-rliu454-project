@@ -18,13 +18,13 @@
                 <p>Genre: {{songList[i].genre}}</p>
                 <p>Add Time: {{songList[i].addT}}</p>
             </div>
-
             <button (click)="checkreview(songList[i].title)">View Review</button>
             <ul *ngFor="let index of this.reviewList; let j = index">
                 <p>Create Time: {{reviewList[j].reviewT}}</p>
                 <p>Reviewer: {{reviewList[j].reviewerN}}</p>
                 <p>Rating: {{reviewList[j].rating}}</p>
-                <p>
+                <p>Review: {{reviewList[j].reviewC}}</p>
+
             </ul>
 
 

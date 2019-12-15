@@ -51,8 +51,6 @@ export class LatestComponent implements OnInit {
           
         })}
       
-
-      
   }
 
   //search song result
@@ -97,21 +95,23 @@ export class LatestComponent implements OnInit {
     //var user = this.appComponent.owner;
     var review = prompt("Please enter your reivew:", "Review...");
     var rating = prompt("Please enter your rating 1-5:", "Raing");
-    if (review == null || rating == "") {
-      review = prompt("Please enter your reivew:", "Review...");
-      rating = prompt("Please enter your rating 1-5:", "Raing");
-    } else {
+    if (review == null ) {
+      review = prompt("Review cannot be blank:", "Review...");
+      
+    } else if(Number(rating)>5 || Number(rating)<1 ){
+      rating = prompt("Rating should in range 1-5:", "Raing...");
+    }
 
-      this.latestService.writeReview({songN:songTitle, reviewerN: this.userDetails.email, rating:rating,reviewC:review }).subscribe(
-        res => {
-          console.log("writeReview successed");
- 
-        },
-        err => { 
-          console.log(err);
-          
-        });
-       }
+    this.latestService.writeReview({songN:songTitle, reviewerN: this.userDetails.email, rating:rating,reviewC:review }).subscribe(
+      res => {
+        console.log("Write Review successed");
+
+      },
+      err => { 
+        console.log(err);
+        
+      });
+     
 
   }
 
