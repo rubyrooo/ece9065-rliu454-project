@@ -21,10 +21,8 @@ var playlistSchema = new mongoose.Schema({
     playlistT: {
         type: Date
     },
-    songlist: {
-
+    songList: {
         type: Array
-
     }
 });
 

@@ -23,7 +23,7 @@ export class UserProfileComponent implements OnInit {
       },
       err => { 
         
-        
+        console.log("something wrong")
       }
     );
   }

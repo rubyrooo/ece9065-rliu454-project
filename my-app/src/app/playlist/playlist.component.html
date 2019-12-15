@@ -1,1 +1,23 @@
-<p>playlist works!</p>
+<form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)" class="search-result">
+    <input type="text" placeholder="Search..." name="id" [(ngModel)]="id"> <input type="submit">
+    <div id="li"></div>
+</form>
+
+<div class="result" *ngIf="playlistList">
+    <ul *ngFor="let index of this.playlistList; let i = index">
+        <li> Name of Playlist: {{playlistList[i].playlistN}}
+            <button (click)="showDetails(i)">>> {{buttonInfo[i]}}</button>
+            <div *ngIf="details[i]">
+                <p>Description: {{playlistList[i].description}}</p>
+
+            </div>
+
+            <button (click)="checksonginplaylist(playlistList[i])">View Songs</button>
+            <ul *ngFor="let index of this.songinPlaylist; let j = index">
+                <p>Song Name: {{songinPlaylist[j].songN}}</p>
+            </ul>
+
+            <button (click)="addList(playlistList[i].playlistN)">Add Playlist</button>
+        </li>
+    </ul>
+</div>

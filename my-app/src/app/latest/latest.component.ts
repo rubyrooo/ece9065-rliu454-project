@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm} from '@angular/forms';
 import { LatestService } from '../shared/latest.service';
+import { PlaylistService } from '../shared/playlist.service';
 import { Router } from "@angular/router";
 import { AppComponent } from '../app.component';
 import { UserService } from '../shared/user.service';
@@ -15,12 +16,13 @@ export class LatestComponent implements OnInit {
   songList;
   reviewList;
   details = new Array;
-  buttonInfo;
+  buttonInfo =new Array;
   login;
   userDetails;
+  result;
  
 
-  constructor( private userService: UserService, private latestService: LatestService, private router: Router, public appComponent: AppComponent) { }
+  constructor( private userService: UserService, private latestService: LatestService,private playlistService: PlaylistService, private router: Router, public appComponent: AppComponent) { }
 
   ngOnInit() {
     this.latestService.getTopTen().subscribe(
@@ -69,10 +71,10 @@ export class LatestComponent implements OnInit {
   
       if(this.details[i]==true){
         this.details[i]=false;
-        this.buttonInfo = "Show Details";
+        this.buttonInfo[i] = "Show Details";
       }else{
         this.details[i]=true;
-        this.buttonInfo = "Hidden Details";
+        this.buttonInfo[i] = "Hidden Details";
       }
   }
 
@@ -81,7 +83,7 @@ export class LatestComponent implements OnInit {
       res => {
 
         this.reviewList = res;
-        console.log(this.reviewList);
+      
       },
       err => { 
         console.log(err);
@@ -102,8 +104,7 @@ export class LatestComponent implements OnInit {
 
       this.latestService.writeReview({songN:songTitle, reviewerN: this.userDetails.email, rating:rating,reviewC:review }).subscribe(
         res => {
-      
-          
+          console.log("writeReview successed");
  
         },
         err => { 
@@ -114,5 +115,20 @@ export class LatestComponent implements OnInit {
 
   }
 
+
+
+
+  addList(songTitle){
+    var playlist = prompt("Please enter the playlist you want to add into:", "Playlist Name...");
+    console.log("playlist",playlist);
+    this.playlistService.postUserplaylist({ playlistN:playlist, userN:this.userDetails.email, songN:songTitle }).subscribe(
+      res => {
+        this.result = res;
+      },
+      err => { 
+        console.log(err);
+        
+      });
+  }
 }
 

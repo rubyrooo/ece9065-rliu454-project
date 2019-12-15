@@ -3,4 +3,5 @@ export class Playlist {
     playlistN: String;
     status:  String;
     description:  String;
+    songList: Array<String> ;
 }

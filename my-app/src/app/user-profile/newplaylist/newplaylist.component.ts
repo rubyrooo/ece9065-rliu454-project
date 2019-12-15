@@ -10,6 +10,7 @@ import { PlaylistService } from '../../shared/playlist.service';
 export class NewplaylistComponent implements OnInit {
   serverSuccessMessages: String;
   serverErrorMessages: String;
+  playlistN_userN_songN: String;
   constructor(private playlistService: PlaylistService,private appComponent: AppComponent) { }
 
   ngOnInit() {
@@ -20,8 +21,12 @@ export class NewplaylistComponent implements OnInit {
     var addstatus = document.getElementById('status')["value"];
     var adddescription = document.getElementById('description')["value"];
 
+    this.playlistN_userN_songN = addplaylistN+"0"+this.appComponent.owner;
+    console.log("playlistN_userN_songN"+this.playlistN_userN_songN);
 
-    this.playlistService.postPlaylist( {playlistN: addplaylistN, status:addstatus, description: adddescription, userN:this.appComponent.owner }).subscribe(      
+    this.appComponent.owner
+
+    this.playlistService.postPlaylist( {playlistN: addplaylistN, status:addstatus, description: adddescription, userN:this.appComponent.owner,songList:[]}).subscribe(      
       res => {
       this.serverSuccessMessages = "Create Successfully";
       this.resetForm();
@@ -29,17 +34,20 @@ export class NewplaylistComponent implements OnInit {
     },
     err => {
       this.serverErrorMessages = err.error.message;
-    }
+    })
+  
 
 
-    )}
+  
+  }
 
   resetForm() {
     this.playlistService.model = {
       playlistN:  '',
       status: '',
       description: '',
-      userN: ''
+      userN: '',
+      songList: []
     };
 
   }

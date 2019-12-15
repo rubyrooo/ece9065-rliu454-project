@@ -4,9 +4,10 @@
 </form>
 
 <div class="result" *ngIf="songList">
+
     <ul *ngFor="let index of this.songList; let i = index">
         <li> Name of Song: {{songList[i].title}}
-            <button (click)="showDetails(i)">>> {{buttonInfo}}</button>
+            <button (click)="showDetails(i)">>>{{buttonInfo[i]}}</button>
             <div *ngIf="details[i]">
                 <p>Artist: {{songList[i].artist}}</p>
                 <p>Alblum: {{songList[i].alblum}}</p>
@@ -16,16 +17,16 @@
                 <p>Track: {{songList[i].track}}</p>
                 <p>Genre: {{songList[i].genre}}</p>
                 <p>Add Time: {{songList[i].addT}}</p>
-
             </div>
-            <button (click)="checkreview(songList[i].title)">View Review</button>
 
+            <button (click)="checkreview(songList[i].title)">View Review</button>
             <ul *ngFor="let index of this.reviewList; let j = index">
                 <p>Create Time: {{reviewList[j].reviewT}}</p>
                 <p>Reviewer: {{reviewList[j].reviewerN}}</p>
                 <p>Rating: {{reviewList[j].rating}}</p>
-                <p>Review: {{reviewList[j].reviewC}}</p><br>
+                <p>
             </ul>
+
 
             <button *ngIf="login" (click)="writereview(songList[i].title)">Write Review</button>
             <button *ngIf="login" (click)="addList(songList[i].title)">Add to List</button>

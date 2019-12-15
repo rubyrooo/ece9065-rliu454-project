@@ -36,13 +36,14 @@ export const appRoutes: Routes = [
     },
     {
         path: 'latest', component: LatestComponent
-      
+    
     },
     {
-        path: 'playlist', component: PlaylistComponent
+        path: 'playlist', component: PlaylistComponent,canActivate:[AuthGuard]
 
     },
     {
         path: '', redirectTo: '/homepage', pathMatch: 'full'
     }
+
 ];

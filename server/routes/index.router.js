@@ -28,8 +28,15 @@ router.get('/secure/reviews/:id', ctrlReview.showreview);
 
 //create a review by given song name
 router.post('/secure/playlist', ctrlPlaylist.saveplaylist);
-//get all playlist b
+//add a song to playlist by given playlistN,userN,songN
+router.post('/secure/savesongplaylist', ctrlPlaylist.savesongtoplaylist);
+
+//get all playlist by userid
 router.get('/secure/playlist/:id', ctrlPlaylist.showplaylist);
+//soft search playlist
+router.get('/secure/search/playlist/:id', ctrlPlaylist.searchplaylist);
+//get all song in playlist by given playlistN_userN
+router.get('/secure/search/playlistsong/:id', ctrlPlaylist.showsonginlist);
 
 //soft search song
 router.get('/open/search/:id', ctrlSong.searchsong);
