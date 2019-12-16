@@ -67,6 +67,7 @@ router.post('/admin/songstatus/update', ctrlAdmin.grantSong);
 router.post('/admin/useractive/update', ctrlAdmin.activeUser);
 //get all song 
 router.get('/admin/songs', ctrlAdmin.getallSong);
-
+//get all user 
+router.get('/admin/users', ctrlAdmin.getallUser);
 
 module.exports = router;

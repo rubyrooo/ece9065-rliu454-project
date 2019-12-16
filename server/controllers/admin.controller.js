@@ -54,3 +54,24 @@ module.exports.getallSong = async(req, res, next) => {
     }
 
 }
+
+module.exports.getallUser = async(req, res, next) => {
+    try {
+        var all = await User.find();
+
+        if (!all) {
+            return res.status(404).json({ status: false, message: 'No user record' });
+        } else {
+            var alluser = new Array();
+            for (var i = 0; i < all.length; i++) {
+
+                alluser.push(all[i]);
+            }
+            console.log(alluser.length)
+            return res.status(200).send(alluser);
+        }
+    } catch (err) {
+        res.json({ message: err });
+    }
+
+}

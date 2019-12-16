@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { User } from './user.model';
 
+import { User_Status } from './user_status.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +15,10 @@ export class UserService {
     email: '',
     password: '',
     method: 'local'
+  };
+  user_status_model: User_Status = {
+    email: '',
+    admin: false
   };
 
 
@@ -60,6 +66,15 @@ export class UserService {
       return userPayload.exp > Date.now() / 1000;
     else
       return false;
+  }
+
+  getAllUser(){
+    return this.http.get(environment.apiBaseUrl+'/admin/users');
+  }
+
+  //update user status
+  updateUserStatus(user_status: User_Status){
+    return this.http.post(environment.apiBaseUrl+ '/admin/userstatus/update', user_status);
   }
 
 }

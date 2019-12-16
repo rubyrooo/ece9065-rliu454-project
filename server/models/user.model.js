@@ -21,9 +21,10 @@ var userSchema = new mongoose.Schema({
         minlength: [4, 'Password must be atleast 4 character long']
     },
     active: {
-        type: Boolean,
+        type: String,
+        enum: ['notvarified', 'activated', 'deactivated']
         required: true,
-        default: false
+        default: 'notvarified'
     },
     admin: {
         type: Boolean,

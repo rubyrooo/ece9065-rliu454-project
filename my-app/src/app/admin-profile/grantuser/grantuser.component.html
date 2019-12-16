@@ -1,1 +1,13 @@
-<p>grantuser works!</p>
+<ul *ngFor="let index of this.userList; let i = index">
+    <li> User Name: {{userList[i].fullName}}
+        <p>User Email: {{userList[i].email}}</p>
+        <p>Active Status: {{userList[i].active}}</p>
+        <!--         <button (click)="showDetails(i)">>></button>
+        <button (click)="writereview(songList[i].title)">Write Review</button>
+        <button (click)="addList(songList[i].title)">Add to List</button> -->
+        <div>
+            <label>Admin Status:</label> <select [(ngModel)]="admin" name="admin" id="admin"><option value=false>user</option><option value=true>admin</option></select>
+            <button (click)="Changeadminstatus(i)">Change Admin Status</button>
+        </div>
+    </li>
+</ul>
