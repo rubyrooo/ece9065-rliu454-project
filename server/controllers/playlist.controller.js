@@ -80,10 +80,12 @@ module.exports.searchplaylist = (req, res) => {
     word = word.replace(/\s/g, "");
     console.log(word);
     var _filter = {
-        $or: [
-            { playlistN: { $regex: word, $options: '$i' } },
+        $and: [{
+            $or: [
+                { playlistN: { $regex: word, $options: '$i' } },
 
-        ]
+            ]
+        }, { status: { $ne: 'private' } }]
     }
 
     Playlist.find(_filter, (err, playlist) => {
