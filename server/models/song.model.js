@@ -42,7 +42,12 @@ var songSchema = new mongoose.Schema({
     addN: {
         type: String
 
-    }
+    },
+    hidden: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
 });
 
 mongoose.model('Song', songSchema);

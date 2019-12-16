@@ -5,6 +5,7 @@ const ctrlUser = require('../controllers/user.controller');
 const ctrlSong = require('../controllers/song.controller');
 const ctrlReview = require('../controllers/review.controller');
 const ctrlPlaylist = require('../controllers/playlist.controller');
+const ctrlAdmin = require('../controllers/admin.controller');
 
 const jwtHelper = require('../config/jwtHelper');
 
@@ -56,6 +57,16 @@ router.get('/open/song/:id', ctrlSong.showsong);
 router.post('/secure/playlist/description/update', ctrlPlaylist.updateplaylistDes);
 //update status in a user playlist by given playlistN,userN, description
 router.post('/secure/playlist/status/update', ctrlPlaylist.updateplaylistStatus);
+
+
+//update admin status in users by gvien {email, admin}
+router.post('/admin/userstatus/update', ctrlAdmin.grantUser);
+//update hidden status in songs by given {title, hidden}
+router.post('/admin/songstatus/update', ctrlAdmin.grantSong);
+//update active status in users by gvien {email, active}
+router.post('/admin/useractive/update', ctrlAdmin.activeUser);
+//get all song 
+router.get('/admin/songs', ctrlAdmin.getallSong);
 
 
 module.exports = router;
