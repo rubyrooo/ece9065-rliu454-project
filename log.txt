@@ -1,0 +1,265 @@
+commit 9a3a7455a129252593563af96209b3a9eedb76b5
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sun Dec 15 23:36:42 2019 -0500
+
+    Manager Page, hidden/show song , grant user
+
+commit 473e502cb53a0389abf6a3ef5438973358943a31
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sun Dec 15 20:46:37 2019 -0500
+
+    Backend, manager modify user status, song status
+
+commit db1baaaf41c205a92ea74ee928f8b63afa09961a
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sun Dec 15 19:30:37 2019 -0500
+
+    private playlist can not be searched
+
+commit 154775b840a0d2764fe7b6afea784448869638ad
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sun Dec 15 19:16:48 2019 -0500
+
+    Allow user modify playlist description, status
+
+commit ebd281be1ded79952bce49b29b4644e95d8c2f06
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sun Dec 15 16:38:01 2019 -0500
+
+    Delete song in my playlist
+
+commit 7d58d5dd6ff540961bb21c57be78f831a880b24b
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sun Dec 15 02:37:21 2019 -0500
+
+    Add current user's playlist to my playlist
+
+commit 379c87f894515dbcd5f649e084b1a506fbd60763
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sun Dec 15 00:16:14 2019 -0500
+
+    Add new song to playlist, if not exist playlist, add new
+
+commit 3b70ab9885b255aec8c8822a76901c272333945b
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sat Dec 14 16:28:45 2019 -0500
+
+    Frontend, only login user can write review
+
+commit 8e0cd5e21d14ea604f10fe11419d4a9434d330d3
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sat Dec 14 00:49:28 2019 -0500
+
+    Frontend, show rearch resutl, hidden/show song detail, show song reviews
+
+commit 6e63dc9cfcc1df7f558e2b17af8be49b78be2fab
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Fri Dec 13 16:39:21 2019 -0500
+
+    Frontend, add song
+
+commit 2eccfbe7b1254e4f7bb3c28f479b136a0263144c
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 9 23:00:18 2019 -0500
+
+    Frontend, Add new song
+
+commit 6e38fc26884a89b4312e1e9ce326173031a3cea7
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 9 20:26:48 2019 -0500
+
+    Frontend, search song
+
+commit 0707656b428e8decbf3e9f337f628293fa248808
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 9 14:54:46 2019 -0500
+
+    Frontend, top ten song
+
+commit 405aa42a26ec81fafb7aabb86346e0f27701e9e2
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 9 03:05:00 2019 -0500
+
+    Frontend, show top 10 song
+
+commit a56ed78234cf3cac4f6924753a203a3f0b256fb2
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 9 02:05:15 2019 -0500
+
+    Backend, return all playlist by given user id, return song by given song name
+
+commit aeb06e958b9e4469090c6020c7b100b942eaf437
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 9 01:42:39 2019 -0500
+
+    Backend, return all reviews
+
+commit 9026cba57beac725275291bcb92e3ce23bf74534
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 9 01:13:17 2019 -0500
+
+    Backend, top 10 song, aggregate by review
+
+commit 15dae9b8e18cefee9a18ceba1dcfdab132763f33
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sat Dec 7 19:03:03 2019 -0500
+
+    Backend, Add soft search function returen a list of song, Add topsong function
+
+commit afd61e5e0f3855f495bc0eb5f247f1bab081dd22
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sat Dec 7 19:01:26 2019 -0500
+
+    Frontend, add new page
+
+commit 1582ef61db06c403e9bae84cc1746ee5a8655f08
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Fri Dec 6 17:26:07 2019 -0500
+
+    Frontend, Google login
+
+commit aef2cd224762464d07d37b8312a36d1c531d6ed6
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Fri Dec 6 16:52:39 2019 -0500
+
+    Modify backend
+
+commit b6ec466d74100828e92d340e2c4f232aa9990166
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Thu Dec 5 21:34:49 2019 -0500
+
+    login with google account
+
+commit eb5b52e61756b79d5dab6467022da43f4e6646eb
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Thu Dec 5 20:04:25 2019 -0500
+
+    Backend create new playlist
+
+commit 38403730a365b27a2ce5fc40e522e2d49ded449f
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Thu Dec 5 17:34:10 2019 -0500
+
+    Backend, create new review given by song name
+
+commit ff8d8a036b7e8e1b369b09544b8421e91f160de1
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Thu Dec 5 16:39:22 2019 -0500
+
+    Backend  create new song
+
+commit c28c7a46012449c6654cab038c2147509cd89a43
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Wed Dec 4 17:33:35 2019 -0500
+
+    Front end, add nav bar
+
+commit ee325a879c70ef3458be4a0791860cb6eb212021
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Wed Dec 4 16:20:00 2019 -0500
+
+    Finish Email varify
+
+commit dd07755fcd6b199824e9f95263579f07ae33de57
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Wed Dec 4 15:20:46 2019 -0500
+
+    Revert "Add Login and Logout"
+    
+    This reverts commit e09fb80cc5beb6b5349f7e35a59225bb79b3c944.
+
+commit f0192eaaee6762487f575d88bc03fb0dc841a993
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Wed Dec 4 00:05:42 2019 -0500
+
+    Email Varify Secceed
+
+commit b66003ea8f782ac666054dc60d2da9a280be0b65
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Tue Dec 3 22:49:28 2019 -0500
+
+    email varification,  with link that can be clicked
+
+commit fa02d067bccccbdc8ebee8549bf3e55038a2ae5e
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Tue Dec 3 18:16:51 2019 -0500
+
+    Local varify, sending email to new user
+
+commit 8e9e5f69c979d503388c538a67c41dc5c02a6623
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Tue Dec 3 13:50:52 2019 -0500
+
+    Insert google profile info into mongoDB
+
+commit 734bf18b7b174294812dfb05cb45d8aa65abe1cc
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Tue Dec 3 12:26:43 2019 -0500
+
+    Modify schema, add 'method'
+
+commit 3b1c1a7720fb276fc0242eb42e15226f452b1b63
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 2 20:01:55 2019 -0500
+
+    Connect OAuth  google API
+
+commit e09fb80cc5beb6b5349f7e35a59225bb79b3c944
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 2 15:41:51 2019 -0500
+
+    Add Login and Logout
+
+commit 2e7e23d4556a3c5792f943bdebe520d9ee8bcf54
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 2 14:23:58 2019 -0500
+
+    Add Jwt Authentication
+
+commit a3bcaf35d064a912b7b20a6d712b054dad36a784
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sun Dec 1 20:00:21 2019 -0500
+
+    update Readme
+
+commit ae02c03154f5c1b5ddbd3eeaa11adbc1ba47a5fa
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sun Dec 1 19:49:44 2019 -0500
+
+    modify
+
+commit a6f883c3c3f13c1d1954c859dedffabab5ca08f9
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sun Dec 1 19:49:14 2019 -0500
+
+    Register Sign up, connect to back end
+
+commit 78c9f8916ebfbc56e23ed7cdfaeba2a14046cd33
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sun Dec 1 16:16:03 2019 -0500
+
+    Move backend code into server file
+
+commit fe5c894812dba7f42cb417a821301170ef90edef
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sat Nov 30 21:41:14 2019 -0500
+
+    Connect to mongodb, input validation, input duplicate check
+
+commit 828c4be2d191d1059bb85f9a4f1d315b68c5726b
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sat Nov 30 17:10:06 2019 -0500
+
+    Angular Model
+
+commit 9835ae7d9ae029a6a709618f749aedc6ecc48be8
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sat Nov 30 16:38:53 2019 -0500
+
+    Add .gitignore
+
+commit f5494acb5f8030bc470afecb27d06ff1442e66f7
+Author: rubyrooo <33919224+rubyrooo@users.noreply.github.com>
+Date:   Sat Nov 30 16:36:44 2019 -0500
+
+    Initial commit
