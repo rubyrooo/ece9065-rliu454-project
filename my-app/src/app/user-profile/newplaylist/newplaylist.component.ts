@@ -10,7 +10,6 @@ import { PlaylistService } from '../../shared/playlist.service';
 export class NewplaylistComponent implements OnInit {
   serverSuccessMessages: String;
   serverErrorMessages: String;
-  playlistN_userN_songN: String;
   constructor(private playlistService: PlaylistService,private appComponent: AppComponent) { }
 
   ngOnInit() {
@@ -20,11 +19,6 @@ export class NewplaylistComponent implements OnInit {
     var addplaylistN = document.getElementById('playlistN')["value"];
     var addstatus = document.getElementById('status')["value"];
     var adddescription = document.getElementById('description')["value"];
-
-    this.playlistN_userN_songN = addplaylistN+"0"+this.appComponent.owner;
-    console.log("playlistN_userN_songN"+this.playlistN_userN_songN);
-
-
 
     this.playlistService.postPlaylist( {playlistN: addplaylistN, status:addstatus, description: adddescription, userN:this.appComponent.owner,songList:[]}).subscribe(      
       res => {

@@ -124,9 +124,7 @@ module.exports.savesongtoplaylist = async(req, res) => {
     var getuserN = req.body.userN;
     var getplaylistN = req.body.playlistN;
     var getsongN = req.body.songN;
-    console.log("A", getuserN);
-    console.log("B", getplaylistN);
-    console.log("C", getsongN);
+
     var newplaylist = new Playlist();
     var time = new Date;
     var t = time.getTime();
@@ -228,3 +226,59 @@ module.exports.addasmyplaylist = async(req, res) => {
 
     }
 }
+
+
+
+
+// update user playlist description
+module.exports.updateplaylistDes = async(req, res) => {
+
+    var finduserN = req.body.userN;
+    var findplaylistN = req.body.playlistN;
+    var finddescription = req.body.description;
+    console.log("A", finduserN);
+    console.log("B", findplaylistN);
+    console.log("C", finddescription);
+
+    try {
+        sample = await Playlist.findOne({ playlistN: findplaylistN, userN: finduserN });
+    } catch (error) {
+        next(error);
+    }
+
+    if (sample == null) {
+        console.log("Wrong");
+    } else {
+        await Playlist.findOneAndUpdate({ playlistN: findplaylistN, userN: finduserN }, { $set: { description: finddescription } }).then((updatedDoc) => {
+            res.send(updatedDoc);
+            console.log("D", updatedDoc);
+        })
+    }
+
+};
+
+// update user playlist description
+module.exports.updateplaylistStatus = async(req, res) => {
+    var searchuserN = req.body.userN;
+    var searchplaylistN = req.body.playlistN;
+    var searchstatus = req.body.status;
+
+    console.log("A", searchuserN);
+    console.log("B", searchplaylistN);
+    console.log("C", searchstatus);
+
+    try {
+        sample = await Playlist.findOne({ playlistN: searchplaylistN, userN: searchuserN });
+    } catch (error) {
+        next(error);
+    }
+
+    if (sample == null) {
+        console.log("Wrong");
+    } else {
+        await Playlist.findOneAndUpdate({ playlistN: searchplaylistN, userN: searchuserN }, { $set: { status: searchstatus } }).then((updatedDoc) => {
+            console.log("D", updatedDoc);
+            res.send(updatedDoc);
+        })
+    }
+};

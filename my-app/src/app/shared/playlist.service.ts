@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Playlist } from './playlist.model';
 import { Userplaylist } from './userplaylist.model';
+import { User_Playlist_Description } from './user_playlist_description.model';
+import { User_Playlist_Status } from './user_playlist_status.model';
 import { User_Creater_Playlist } from './user_creater_playlist.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -27,6 +29,18 @@ export class PlaylistService {
     playlistN: '',
     userN: '',
     songN: ''
+  };
+
+  user_playlist_description_model: User_Playlist_Description = {
+    playlistN: '',
+    userN: '',
+    description: ''
+  };
+
+  user_playlist_status_model: User_Playlist_Status = {
+    playlistN: '',
+    userN: '',
+    status: ''
   };
   constructor(private http: HttpClient) { }
 
@@ -58,11 +72,22 @@ export class PlaylistService {
     return this.http.get(environment.apiBaseUrl+ '/secure/playlist/'+ id);
   }
 
-    //delete song in playlist
+  //delete song in playlist
   deletesonginPlaylist(userplaylist: Userplaylist){
     return this.http.post(environment.apiBaseUrl+ '/secure/deletesongplaylist', userplaylist);
   }
 
+
+  //update playlist description
+  updatePlaylistDes(User_Playlist_Description: User_Playlist_Description){
+    return this.http.post(environment.apiBaseUrl+ '/secure/playlist/description/update', User_Playlist_Description);
+  }
+
+
+  //update playlist status
+  updatePlaylistStatus(User_Playlist_Status: User_Playlist_Status){
+    return this.http.post(environment.apiBaseUrl+ '/secure/playlist/status/update', User_Playlist_Status);
+  }
   
 
 }

@@ -52,4 +52,10 @@ router.get('/open/song', ctrlSong.topsong);
 router.get('/open/song/:id', ctrlSong.showsong);
 
 
+//update description in a user playlist by given playlistN,userN, description
+router.post('/secure/playlist/description/update', ctrlPlaylist.updateplaylistDes);
+//update status in a user playlist by given playlistN,userN, description
+router.post('/secure/playlist/status/update', ctrlPlaylist.updateplaylistStatus);
+
+
 module.exports = router;
