@@ -37,17 +37,19 @@ module.exports.searchsong = (req, res) => {
     word = word.replace(/\s/g, "");
     console.log(word);
     var _filter = {
-        $or: [
+        $and: [{
+            $or: [
 
-            { title: { $regex: word, $options: '$i' } },
-            { artist: { $regex: word, $options: '$i' } },
-            { alblum: { $regex: word, $options: '$i' } },
-            { year: { $regex: word, $options: '$i' } },
-            { comment: { $regex: word, $options: '$i' } },
-            { reserve: { $regex: word, $options: '$i' } },
-            { track: { $regex: word, $options: '$i' } },
-            { genre: { $regex: word, $options: '$i' } }
-        ]
+                { title: { $regex: word, $options: '$i' } },
+                { artist: { $regex: word, $options: '$i' } },
+                { alblum: { $regex: word, $options: '$i' } },
+                { year: { $regex: word, $options: '$i' } },
+                { comment: { $regex: word, $options: '$i' } },
+                { reserve: { $regex: word, $options: '$i' } },
+                { track: { $regex: word, $options: '$i' } },
+                { genre: { $regex: word, $options: '$i' } }
+            ]
+        }, { hidden: { $ne: true } }]
     }
 
     Song.find(_filter, (err, song) => {

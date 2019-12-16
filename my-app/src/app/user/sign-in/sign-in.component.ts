@@ -42,7 +42,7 @@ export class SignInComponent implements OnInit {
       this.userService.login(this.googleuser_1).subscribe(
         res => {
           this.userService.setToken(res['token']);
-          this.router.navigateByUrl('/newsong');
+          this.router.navigateByUrl('/homepage');
         },
         err => {
           this.serverErrorMessages = err.error.message;
@@ -65,14 +65,15 @@ export class SignInComponent implements OnInit {
   serverErrorMessages: string;
   ngOnInit() {
     if(this.userService.isLoggedIn())
-    this.router.navigateByUrl('/newsong');
+    this.router.navigateByUrl('/homepage');
   }
 
   onSubmit(form : NgForm){
     this.userService.login(form.value).subscribe(
       res => {
+        console.log("WHAT IS THIS",this.userService.setToken(res['token']));
         this.userService.setToken(res['token']);
-        this.router.navigateByUrl('/newsong');
+        this.router.navigateByUrl('/homepage');
       },
       err => {
         this.serverErrorMessages = err.error.message;

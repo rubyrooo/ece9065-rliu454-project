@@ -31,6 +31,8 @@ export class UserProfileComponent implements OnInit {
     
         this.appComponent.owner = this.userDetails.email;
         console.log("Where"+ this.appComponent.owner);
+        console.log("PP"+ this.userDetails.email);
+        console.log("QQ"+  this.userDetails.admin );
         
         //get my Playlist
         this.playlistService.getmyPlaylist(this.userDetails.email).subscribe(

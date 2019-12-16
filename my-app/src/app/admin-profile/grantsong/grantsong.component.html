@@ -1,0 +1,13 @@
+<ul *ngFor="let index of this.songList; let i = index">
+    <li> Name of Song: {{songList[i].title}}
+        <p>Artist: {{songList[i].artist}}</p>
+        <!--         <button (click)="showDetails(i)">>></button>
+        <button (click)="writereview(songList[i].title)">Write Review</button>
+        <button (click)="addList(songList[i].title)">Add to List</button> -->
+
+        <div>
+            <label>Status:</label> <select [(ngModel)]="hidden" name="hidden" id="hidden"><option value=false>show</option><option value=true>hidden</option></select>
+            <button (click)="Changestatus(i)">Change Hidden Status</button>
+        </div>
+    </li>
+</ul>

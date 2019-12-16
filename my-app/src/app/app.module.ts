@@ -36,6 +36,9 @@ import { LatestComponent } from './latest/latest.component';
 import { NewsongComponent } from './user-profile/newsong/newsong.component';
 import { NewplaylistComponent } from './user-profile/newplaylist/newplaylist.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { GrantuserComponent } from './admin-profile/grantuser/grantuser.component';
+import { GrantsongComponent } from './admin-profile/grantsong/grantsong.component';
 
 
 
@@ -50,7 +53,10 @@ import { PlaylistComponent } from './playlist/playlist.component';
     LatestComponent,
     NewsongComponent,
     NewplaylistComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    AdminProfileComponent,
+    GrantuserComponent,
+    GrantsongComponent
 
   ],
   imports: [
