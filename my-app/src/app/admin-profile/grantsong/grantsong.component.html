@@ -1,6 +1,7 @@
 <ul *ngFor="let index of this.songList; let i = index">
     <li> Name of Song: {{songList[i].title}}
         <p>Artist: {{songList[i].artist}}</p>
+        <p>Hidden Status: {{songList[i].hidden}}</p>
         <!--         <button (click)="showDetails(i)">>></button>
         <button (click)="writereview(songList[i].title)">Write Review</button>
         <button (click)="addList(songList[i].title)">Add to List</button> -->
