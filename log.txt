@@ -1,3 +1,57 @@
+commit 23822dc27816a07f83cc95c70c80eb2a75c64e8d
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 16 23:19:58 2019 -0500
+
+    Modify
+
+commit 651f8f49648c62d9e9dce9f9ecd6af63bca009b8
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 16 22:36:57 2019 -0500
+
+    Frontend, title and  artist of song required
+
+commit 7a757186709e447cc698bbf39a30186072f2a367
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 16 20:58:19 2019 -0500
+
+    Frontend, modify
+
+commit e2b5407edc7566be0e4c2931fed62ce091ca87c1
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 16 20:57:32 2019 -0500
+
+    Constrant api
+
+commit 068941b5ddc92834c35d138c70da08b155eee5ca
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 16 20:40:37 2019 -0500
+
+    Allow admin change user active status
+
+commit 238cd53c50b75f5504c704b593db5e201cf8e84c
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 16 20:11:32 2019 -0500
+
+    Allow user to modify existing playlist name
+
+commit 92ccb4a645d3a696c9dc396ee30f5feea73786ef
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 16 20:08:16 2019 -0500
+
+    resend Email is user email is not verified
+
+commit e8c4c7f11126e19ce489898a321dafd9764879d4
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Mon Dec 16 15:37:59 2019 -0500
+
+    admin grant user admin status
+
+commit 595d5e5852f971c6ef4e8667f5db03018c72a388
+Author: rubyrooo <rubyroo.liu@gmail.com>
+Date:   Sun Dec 15 23:39:44 2019 -0500
+
+    Add .gitignore
+
 commit 9a3a7455a129252593563af96209b3a9eedb76b5
 Author: rubyrooo <rubyroo.liu@gmail.com>
 Date:   Sun Dec 15 23:36:42 2019 -0500
