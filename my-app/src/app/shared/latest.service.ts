@@ -19,7 +19,7 @@ export class LatestService {
   }
 
   searchSong(id){
-    return this.http.get(environment.apiBaseUrl + '/open/search/' + id);
+    return this.http.get(environment.apiBaseUrl + '/open/song/search/' + id);
   }
 
   searchReview(id){

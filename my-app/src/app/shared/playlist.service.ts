@@ -47,12 +47,12 @@ export class PlaylistService {
 
   postPlaylist(playlist: Playlist){
 
-    return this.http.post(environment.apiBaseUrl+'/secure/playlist',playlist);
+    return this.http.post(environment.apiBaseUrl+'/secure/playlist/create',playlist);
   }
 
   //userN, playlistN, songList
   postUserplaylist(userplaylist: Userplaylist){
-    return this.http.post(environment.apiBaseUrl+ '/secure/savesongplaylist', userplaylist);
+    return this.http.post(environment.apiBaseUrl+ '/secure/songplaylist/save', userplaylist);
   }
   
   searchPlaylist(id){
@@ -65,7 +65,7 @@ export class PlaylistService {
   }
 
   addasmyplaylist(user_creater_playlist: User_Creater_Playlist){
-    return this.http.post(environment.apiBaseUrl+ '/secure/addasmyplaylist', user_creater_playlist);
+    return this.http.post(environment.apiBaseUrl+ '/secure/asmyplaylist/add', user_creater_playlist);
   }
 
   //get user's playlist
@@ -75,7 +75,7 @@ export class PlaylistService {
 
   //delete song in playlist
   deletesonginPlaylist(userplaylist: Userplaylist){
-    return this.http.post(environment.apiBaseUrl+ '/secure/deletesongplaylist', userplaylist);
+    return this.http.post(environment.apiBaseUrl+ '/secure/songplaylist/delete', userplaylist);
   }
 
 

@@ -32,7 +32,7 @@ export class SongService {
 
   postSong(song: Song){
     console.log("HERE"+ song);
-    return this.http.post(environment.apiBaseUrl+'/secure/song',song);
+    return this.http.post(environment.apiBaseUrl+'/secure/song/create',song);
   }
 
   getAllSong(){

@@ -18,8 +18,7 @@ router.post('/authenticate', ctrlUser.authenticate);
 router.post('/open/resend', ctrlUser.resend);
 
 
-//create a song and return title
-router.post('/secure/song', ctrlSong.savesong);
+
 
 
 //create a review by
@@ -27,13 +26,14 @@ router.post('/secure/reviews', ctrlReview.savereview);
 //get all review by given song name
 router.get('/secure/reviews/:id', ctrlReview.showreview);
 
-
+//create a song and return title
+router.post('/secure/song/create', ctrlSong.savesong);
 //create a review by given song name
-router.post('/secure/playlist', ctrlPlaylist.saveplaylist);
+router.post('/secure/playlist/create', ctrlPlaylist.saveplaylist);
 //add a song to playlist by given playlistN,userN,songN
-router.post('/secure/savesongplaylist', ctrlPlaylist.savesongtoplaylist);
+router.post('/secure/songplaylist/save', ctrlPlaylist.savesongtoplaylist);
 //add a playlist by given playlistN,userN,createrN
-router.post('/secure/addasmyplaylist', ctrlPlaylist.addasmyplaylist);
+router.post('/secure/asmyplaylist/add', ctrlPlaylist.addasmyplaylist);
 
 //get all playlist by userid
 router.get('/secure/playlist/:id', ctrlPlaylist.showplaylist);
@@ -43,10 +43,10 @@ router.get('/secure/search/playlist/:id', ctrlPlaylist.searchplaylist);
 router.get('/secure/search/playlistsong/:id', ctrlPlaylist.showsonginlist);
 
 //delete song in a playlist by given playlistN,userN,songN
-router.post('/secure/deletesongplaylist', ctrlPlaylist.deletesongtoplaylist);
+router.post('/secure/songplaylist/delete', ctrlPlaylist.deletesongtoplaylist);
 
 //soft search song
-router.get('/open/search/:id', ctrlSong.searchsong);
+router.get('/open/song/search/:id', ctrlSong.searchsong);
 
 //top 10 song
 router.get('/open/song', ctrlSong.topsong);
@@ -60,7 +60,6 @@ router.post('/secure/playlist/description/update', ctrlPlaylist.updateplaylistDe
 router.post('/secure/playlist/status/update', ctrlPlaylist.updateplaylistStatus);
 //update playlist name in a user playlist by given playlistN,userN, new playlistN
 router.post('/secure/playlist/name/update', ctrlPlaylist.updateplaylistName);
-
 
 
 //update admin status in users by gvien {email, admin}
