@@ -56,6 +56,16 @@ module.exports.deletesongtoplaylist = async(req, res, next) => {
     try {
         sample = await Playlist.findOne({ playlistN: newplaylistN, userN: newuserN });
         console.log(sample.songList);
+        for (j = 0; j < sample.songList.length; j++) {
+            if (sample.songList[j] != newsongN) {
+                newsongList.push(sample.songList[j]);
+            }
+        }
+        console.log(newsongList)
+        await Playlist.findOneAndUpdate({ playlistN: newplaylistN, userN: newuserN }, { $set: { songList: newsongList } }).then((updatedDoc) => {
+            res.send(updatedDoc);
+
+        });
     } catch (error) {
         next(error);
     }
