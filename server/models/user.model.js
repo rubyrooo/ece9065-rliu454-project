@@ -22,9 +22,9 @@ var userSchema = new mongoose.Schema({
     },
     active: {
         type: String,
-        enum: ['notvarified', 'activated', 'deactivated']
+        enum: ['notverified', 'activated', 'deactivated'],
         required: true,
-        default: 'notvarified'
+        default: 'notverified'
     },
     admin: {
         type: Boolean,

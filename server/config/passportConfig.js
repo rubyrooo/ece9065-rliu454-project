@@ -57,12 +57,14 @@ passport.use(
                         return done(null, false, { message: 'Email is not registered' });
                     // wrong password
                     else if (!user.verifyPassword(password)) {
-                        console.log("Password: " + password);
                         return done(null, false, { message: 'Wrong password.' });
                     }
-                    // user active = true
-                    else if (user.active == false)
-                        return done(null, false, { message: 'Email not varified' });
+                    // user email not varified
+                    else if (user.active == 'notverified') {
+                        return done(null, false, { message: 'Email not verified.' });
+                    } else if (user.active == 'deactivated') {
+                        return done(null, false, { message: 'Account deactivated, please contact administrator.' });
+                    }
                     // authentication succeeded
                     else
                         return done(null, user);

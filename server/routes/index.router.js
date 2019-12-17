@@ -13,8 +13,9 @@ router.post('/register', ctrlUser.register);
 router.post('/googleregister', ctrlUser.googleregister);
 router.post('/oauth/google', ctrlUser.authenticate_google);
 router.get('/userProfile', jwtHelper.verifyJwtToken, ctrlUser.userProfile);
-router.get('/:varify', ctrlUser.varify);
+router.get('/:verify', ctrlUser.verify);
 router.post('/authenticate', ctrlUser.authenticate);
+router.post('/open/resend', ctrlUser.resend);
 
 
 //create a song and return title
@@ -57,6 +58,9 @@ router.get('/open/song/:id', ctrlSong.showsong);
 router.post('/secure/playlist/description/update', ctrlPlaylist.updateplaylistDes);
 //update status in a user playlist by given playlistN,userN, description
 router.post('/secure/playlist/status/update', ctrlPlaylist.updateplaylistStatus);
+//update playlist name in a user playlist by given playlistN,userN, new playlistN
+router.post('/secure/playlist/name/update', ctrlPlaylist.updateplaylistName);
+
 
 
 //update admin status in users by gvien {email, admin}

@@ -27,5 +27,10 @@
 
 <!-- Error message -->
 <div class="alert" *ngIf="serverErrorMessages">
-    {{serverErrorMessages}}
+    {{serverErrorMessages}}<br>
+    <div *ngIf="serverErrorMessages=='Email not verified.'">Click to resent email.</div>
+    <form #ReSendForm="ngForm" *ngIf="serverErrorMessages=='Email not verified.'" (ngSubmit)="ReSend(signInForm)">
+        <input type="submit" value="resend">
+
+    </form>
 </div>

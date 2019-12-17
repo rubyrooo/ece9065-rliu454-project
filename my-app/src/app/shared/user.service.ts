@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { NgForm} from '@angular/forms';
 import { environment } from '../../environments/environment';
 import { User } from './user.model';
 
@@ -75,6 +75,11 @@ export class UserService {
   //update user status
   updateUserStatus(user_status: User_Status){
     return this.http.post(environment.apiBaseUrl+ '/admin/userstatus/update', user_status);
+  }
+
+
+  resend(form:NgForm){
+    return this.http.post(environment.apiBaseUrl+ '/open/resend', form,this.noAuthHeader);
   }
 
 }

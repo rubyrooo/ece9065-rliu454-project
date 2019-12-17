@@ -13,7 +13,7 @@ module.exports.register = (req, res, next) => {
     user.email = req.body.email;
     user.password = req.body.password;
     user.method = req.body.method;
-    user.active = false;
+    user.active = 'notverified';
 
     //send emaul
     var options = {
@@ -82,13 +82,11 @@ module.exports.googleregister = (req, res, next) => {
 }
 
 
-
-
-// Change active to true one email has been varified
-module.exports.varify = (req, res) => {
-    User.findOneAndUpdate({ email: req.params.varify }, { $set: { active: true } }).then((updatedDoc) => {
+// Change active to 'activated' once email has been varified
+module.exports.verify = (req, res) => {
+    User.findOneAndUpdate({ email: req.params.verify }, { $set: { active: 'activated' } }).then((updatedDoc) => {
         res.send(
-            '<html><strong> Email Varify Secceed.:</strong><br><br><a href="http://localhost:4200/login">click</a></html>'
+            '<html><strong> Email Verify Secceed.</strong><br><br><a href="http://localhost:4200/login">click</a></html>'
         );
     })
 };
@@ -129,4 +127,41 @@ module.exports.userProfile = (req, res, next) => {
                 return res.status(200).json({ status: true, user: _.pick(user, ['fullName', 'email', 'admin']) });
         }
     );
+}
+
+
+
+
+
+module.exports.resend = (req, res, next) => {
+    //send email
+    var options = {
+        auth: {
+            api_user: 'rubyroo',
+            api_key: '123qweasd'
+        }
+    }
+    var client = nodemailer.createTransport(sgTransport(options));
+
+    var emailemail = {
+        from: 'Localhost Staff, staff@localhost.com',
+        to: req.body.email,
+        subject: 'Localhost Activation Link',
+        text: 'Hello<strong> ' + req.body.email + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://localhost:3000/api/' + req.body.email + '"> Click Me</a>',
+        html: 'Hello<strong> ' + req.body.email + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://localhost:3000/api/' + req.body.email + '"> Click Me</a>'
+
+    };
+    // Function to send e-mail to the user
+    client.sendMail(emailemail, function(err, info) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('message sent:' + info.response);
+        } // If error with sending e-mail, log to console/terminal
+
+
+    });
+
+    res.send(doc);
+
 }
