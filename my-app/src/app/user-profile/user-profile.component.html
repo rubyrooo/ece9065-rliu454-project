@@ -38,17 +38,17 @@
 
 <div class="result" *ngIf="myPlaylist">
     <ul *ngFor="let index of this.myPlaylist; let i = index;">
-        <li> Name of Playlist: {{myPlaylist[i].playlistN}}
+        <li> Name of Playlist: {{myPlaylist[i].playlistN}} <button (click)="Changetitle(i)">Change Playlist Name</button>
             <p>Description: {{myPlaylist[i].description}}
                 <p>Status: {{myPlaylist[i].status}}</p>
                 <p>Create Time: {{myPlaylist[i].playlistT}}</p>
 
                 <div>
-                    <label>Description:   </label> <input type="text" [(ngModel)]="description" id="description" name="description" value="" placeholder="Please enter new description...">
+                    <label>Description:</label> <input type="text" [(ngModel)]="description" id="description" name="description" value="" placeholder="Please enter new description...">
                     <button (click)="Modify(i)">Modify Description</button>
                 </div>
                 <div>
-                    <label>Status:   </label> <select [(ngModel)]="status" name="status" id="status"><option value="private">private</option><option value="public">public</option></select>
+                    <label>Status:</label> <select [(ngModel)]="status" name="status" id="status"><option value="private">private</option><option value="public">public</option></select>
                     <button (click)="Changestatus(i)">Change Status</button>
                 </div>
 

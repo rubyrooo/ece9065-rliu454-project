@@ -4,6 +4,7 @@ import { Userplaylist } from './userplaylist.model';
 import { User_Playlist_Description } from './user_playlist_description.model';
 import { User_Playlist_Status } from './user_playlist_status.model';
 import { User_Creater_Playlist } from './user_creater_playlist.model';
+import { User_PlaylistN_NewplaylistN } from './user_playlist_newplaylist.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { environment } from '../../environments/environment';
@@ -89,5 +90,8 @@ export class PlaylistService {
     return this.http.post(environment.apiBaseUrl+ '/secure/playlist/status/update', User_Playlist_Status);
   }
   
+  updatePlaylistName(User_PlaylistN_NewplaylistN: User_PlaylistN_NewplaylistN){
+    return this.http.post(environment.apiBaseUrl+ '/secure/playlist/name/update', User_PlaylistN_NewplaylistN);
+  }
 
 }

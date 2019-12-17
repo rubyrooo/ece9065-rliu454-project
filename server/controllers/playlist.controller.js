@@ -151,7 +151,7 @@ module.exports.savesongtoplaylist = async(req, res) => {
             if (!err) {
                 res.send(doc);
             } else {
-                return next(err);
+                return;
             }
         });
     } else {
@@ -279,6 +279,31 @@ module.exports.updateplaylistStatus = async(req, res) => {
         console.log("Wrong");
     } else {
         await Playlist.findOneAndUpdate({ playlistN: searchplaylistN, userN: searchuserN }, { $set: { status: searchstatus } }).then((updatedDoc) => {
+            console.log("D", updatedDoc);
+            res.send(updatedDoc);
+        })
+    }
+};
+// update user playlist name
+module.exports.updateplaylistName = async(req, res) => {
+    var auserN = req.body.userN;
+    var aplaylistN = req.body.playlistN;
+    var anewplaylistN = req.body.newplaylistN;
+
+    console.log("A", auserN);
+    console.log("B", aplaylistN);
+    console.log("C", anewplaylistN);
+
+    try {
+        sample = await Playlist.findOne({ playlistN: aplaylistN, userN: auserN });
+    } catch (error) {
+        next(error);
+    }
+
+    if (sample == null) {
+        console.log("Wrong");
+    } else {
+        await Playlist.findOneAndUpdate({ playlistN: aplaylistN, userN: auserN }, { $set: { playlistN: anewplaylistN } }).then((updatedDoc) => {
             console.log("D", updatedDoc);
             res.send(updatedDoc);
         })
