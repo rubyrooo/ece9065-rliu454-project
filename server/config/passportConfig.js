@@ -55,6 +55,9 @@ passport.use(
                     // unknown user
                     else if (!user)
                         return done(null, false, { message: 'Email is not registered' });
+                    else if (user.active == 'deactivated') {
+                        return done(null, false, { message: 'Account deactivated, please contact administrator => ADMIN@GMAIL.COM' });
+                    }
                     // wrong password
                     else if (!user.verifyPassword(password)) {
                         return done(null, false, { message: 'Wrong password.' });
@@ -62,8 +65,6 @@ passport.use(
                     // user email not varified
                     else if (user.active == 'notverified') {
                         return done(null, false, { message: 'Email not verified.' });
-                    } else if (user.active == 'deactivated') {
-                        return done(null, false, { message: 'Account deactivated, please contact administrator.' });
                     }
                     // authentication succeeded
                     else

@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment';
 import { User } from './user.model';
 
 import { User_Status } from './user_status.model';
+import { User_Active } from './user_active.model';
 
 @Injectable({
   providedIn: 'root'
@@ -76,8 +77,10 @@ export class UserService {
   updateUserStatus(user_status: User_Status){
     return this.http.post(environment.apiBaseUrl+ '/admin/userstatus/update', user_status);
   }
-
-
+  //update user activation status
+  updateUserActive(User_Active: User_Active){
+    return this.http.post(environment.apiBaseUrl+ '/admin/useractive/update', User_Active);
+  }
   resend(form:NgForm){
     return this.http.post(environment.apiBaseUrl+ '/open/resend', form,this.noAuthHeader);
   }

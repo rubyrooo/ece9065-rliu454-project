@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../shared/user.service';
 import {User_Status} from '../../shared/user_status.model';
+import {User_Active} from '../../shared/user_active.model';
 
 @Component({
   selector: 'app-grantuser',
@@ -11,6 +12,7 @@ export class GrantuserComponent implements OnInit {
   userList;
   showSucessMessage;
   User_Status = new User_Status; 
+  User_Active = new User_Active; 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
@@ -40,7 +42,20 @@ export class GrantuserComponent implements OnInit {
         })
   }
 
+  Changeactivestatus(i){
+    this.User_Active.email = this.userList[i].email; 
+    this.User_Active.active = document.getElementById('active')["value"];
 
+
+    this.userService.updateUserActive(this.User_Active).subscribe( 
+        res => {
+          this.showSucessMessage = "Create Successfully";
+        
+        },
+        err => {
+          console.log(err.error.message);
+        })
+  }
 
 
 

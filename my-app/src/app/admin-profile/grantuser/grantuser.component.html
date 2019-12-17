@@ -1,10 +1,15 @@
 <ul *ngFor="let index of this.userList; let i = index">
     <li> User Name: {{userList[i].fullName}}
         <p>User Email: {{userList[i].email}}</p>
-        <p>Active Status: {{userList[i].active}}</p>
+        <p>Activated Status: {{userList[i].active}}</p>
+        <p>Admin Status: {{userList[i].admin}}</p>
         <!--         <button (click)="showDetails(i)">>></button>
         <button (click)="writereview(songList[i].title)">Write Review</button>
         <button (click)="addList(songList[i].title)">Add to List</button> -->
+        <div>
+            <label>Activated Status:</label> <select [(ngModel)]="active" name="active" id="active"><option value="activated">activated</option><option value="deactivated">deactivated</option></select>
+            <button (click)="Changeactivestatus(i)">Change Activated Status</button>
+        </div>
         <div>
             <label>Admin Status:</label> <select [(ngModel)]="admin" name="admin" id="admin"><option value=false>user</option><option value=true>admin</option></select>
             <button (click)="Changeadminstatus(i)">Change Admin Status</button>
