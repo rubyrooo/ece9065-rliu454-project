@@ -33,16 +33,21 @@ export class NewsongComponent implements OnInit {
     var addtrack = document.getElementById('track')["value"];
     var addgenre = document.getElementById('genre')["value"];
 
-    console.log("addheader"+addheader) //get user email 
+    if(addtitle==""){
+      this.serverErrorMessages="Title should not be empty"
+      return false;
+    }else if(addartist==""){
+      this.serverErrorMessages="Artist should not be empty"
+      return false;
+    }else{
+
 
     this.songService.postSong( {header: addheader,title:addtitle, artist: addartist, alblum:addalblum, year:addyear,comment: addcomment,reserve: addreserve, track:addtrack, genre:addgenre, addN:this.appComponent.owner }).subscribe(      
       res => {
-      console.log("THERE"+this.appComponent.owner) //get user email 
-      
+      /* console.log("THERE"+this.appComponent.owner) //get user email  */
       
       
     //----------------------- start create review -----------------------
-    
     var review = prompt("Please enter your reivew:", "Review...");
     var rating = prompt("Please enter your rating 1-5:", "Raing");
     if (review == null ) {
@@ -61,7 +66,6 @@ export class NewsongComponent implements OnInit {
         console.log(err);
         
       });
-
     //----------------------- end create review -----------------------
 
       this.serverSuccessMessages = "Create Successfully";
@@ -73,7 +77,7 @@ export class NewsongComponent implements OnInit {
     }
 
 
-    )}
+    )}}
 
   resetForm() {
     this.songService.model = {

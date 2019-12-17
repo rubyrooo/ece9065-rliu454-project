@@ -19,6 +19,11 @@ export class NewplaylistComponent implements OnInit {
     var addplaylistN = document.getElementById('playlistN')["value"];
     var addstatus = document.getElementById('status')["value"];
     var adddescription = document.getElementById('description')["value"];
+    if(addplaylistN==""){
+      this.serverErrorMessages="Playlist Name should not be empty"
+      return false;
+    }
+    else{
 
     this.playlistService.postPlaylist( {playlistN: addplaylistN, status:addstatus, description: adddescription, userN:this.appComponent.owner,songList:[]}).subscribe(      
       res => {
@@ -33,7 +38,7 @@ export class NewplaylistComponent implements OnInit {
 
 
   
-  }
+  }}
 
   resetForm() {
     this.playlistService.model = {

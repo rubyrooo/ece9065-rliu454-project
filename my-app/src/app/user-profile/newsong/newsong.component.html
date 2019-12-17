@@ -1,4 +1,4 @@
-<input type="text" id="header" name="header" [(ngModel)]="songService.model.header" placeholder="Header" value="" required>
+<input type="text" id="header" name="header" [(ngModel)]="songService.model.header" placeholder="Header" value="">
 <input type="text" id="title" name="title" [(ngModel)]="songService.model.title" placeholder="Title" value="" required>
 <input type="text" id="artist" name="artist" [(ngModel)]="songService.model.artist" placeholder="Artist" value="" required>
 <input type="text" id="alblum" name="alblum" [(ngModel)]="songService.model.alblum" placeholder="Alblum" value="">
@@ -8,6 +8,7 @@
 <input type="text" id="track" name="track" [(ngModel)]="songService.model.track" placeholder="Track" value="">
 <input type="text" id="genre" name="genre" [(ngModel)]="songService.model.genre" placeholder="Genre" value="">
 <button class="button" (click)="onSubmit()">Create New Song</button>
+
 
 
 
